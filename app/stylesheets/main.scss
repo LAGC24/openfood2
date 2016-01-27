@@ -8,6 +8,15 @@
   text-indent: -9999px;
 }
 
+// MISC
+body {
+  font-family: 'Lato',sans-serif;
+}
+
+.fa-btn {
+  margin-right: 6px;
+}
+
 // Sidebar menu section (commented, not used)
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {

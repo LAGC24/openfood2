@@ -6,6 +6,12 @@
   display: block;
   text-indent: -9999px; }
 
+body {
+  font-family: 'Lato',sans-serif; }
+
+.fa-btn {
+  margin-right: 6px; }
+
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
