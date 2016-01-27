@@ -38,3 +38,6 @@ gulp.task('autoprefixer', function () {
         //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./app/stylesheets'));
 });
+
+
+gulp.task('default', ['sass', 'autoprefixer']);
