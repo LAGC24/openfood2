@@ -1,11 +1,33 @@
+// Small screen / tablet
+$screen-sm-min:              768px;
+// Medium screen / desktop
+$screen-md-min:              992px;
+// Large screen / wide desktop
+$screen-lg-min:              1200px;
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1);
+$screen-sm-max:              ($screen-md-min - 1);
+$screen-md-max:              ($screen-lg-min - 1);
+
 // Logo Image
 .logo {
-  background: url("../images/Logos2.jpg") no-repeat;
-  background-size: 100% auto; //160px 95px;
-  height: 41px;
-  width: 160px;
+  background: url("../images/logo.gif") no-repeat;
+  // Old ones:
+  //background-size: 100% auto; //160px 95px;
+  //height: 41px;
+  //width: 160px;
+  background-size: 100% auto;
+  height: 100%;
+  width: 186px;
   display: block;
   text-indent: -9999px;
+
+  // For XS, add a left margin to logo.
+  margin-left: 20px;
+  // For SM and up, reset margin.
+  @media (min-width: $screen-sm-min) {
+    margin-left: 0;
+  }
 }
 
 // MISC
@@ -18,26 +40,26 @@ body {
 }
 
 // Sidebar menu section (commented, not used)
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-  }
-  .sidebar-nav .navbar ul:not {
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-}
+//@media (min-width: 768px) {
+//  .sidebar-nav .navbar .navbar-collapse {
+//    padding: 0;
+//    max-height: none;
+//  }
+//  .sidebar-nav .navbar ul {
+//    float: none;
+//  }
+//  .sidebar-nav .navbar ul:not {
+//    display: block;
+//  }
+//  .sidebar-nav .navbar li {
+//    float: none;
+//    display: block;
+//  }
+//  .sidebar-nav .navbar li a {
+//    padding-top: 12px;
+//    padding-bottom: 12px;
+//  }
+//}
 
 // Food Category items
 .cat-item {
