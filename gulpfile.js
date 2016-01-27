@@ -16,7 +16,7 @@ var autoprefixer = require('autoprefixer');
 // https://github.com/sass/node-sass
 
 gulp.task('sass', function () {
-    gulp.src('./app/stylesheets/*.scss')
+    return gulp.src('./app/stylesheets/*.scss')
         //.pipe(sourcemaps.init())
         .pipe(sass(sassOptions).on('error', sass.logError))
         //.pipe(sourcemaps.write('.'))  // breaks load srcmap of autoprefixer.
@@ -25,13 +25,14 @@ gulp.task('sass', function () {
 
 gulp.task('sass:watch', function () {
     //gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('./app/stylesheets/*.scss', ['sass']);
+    return gulp.watch('./app/stylesheets/*.scss', ['sass']);
 });
 
 
 // https://github.com/postcss/autoprefixer
+// Depends on Sass task to finish (return the stream).
 
-gulp.task('autoprefixer', function () {
+gulp.task('autoprefixer', ['sass'], function () {
     return gulp.src('./app/stylesheets/*.css')
         //.pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
