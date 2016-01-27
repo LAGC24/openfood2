@@ -1,3 +1,4 @@
+// Logo Image
 .logo {
   background: url("../images/Logos2.jpg") no-repeat;
   background-size: 100% auto; //160px 95px;
@@ -5,4 +6,67 @@
   width: 160px;
   display: block;
   text-indent: -9999px;
+}
+
+// Sidebar menu section (commented, not used)
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+// Food Category items
+.cat-item {
+  float: left;
+  background-color: gray;
+  height: 100px;
+
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 799px) {
+  .cat-item {
+    width: 30%;
+  }
+  .cat-item:nth-child(3n) {
+    margin-right: 0;
+    background-color: sandybrown;
+  }
+}
+
+/*combining both min-width and max-width queries*/
+@media (min-width: 800px) and (max-width: 1199px) {
+  .cat-item {
+    width: 21.25%; /* (100% - 15%) / 4 */
+  }
+  .cat-item:nth-child(4n) {
+    margin-right: 0;
+    background-color: orange;
+  }
+}
+
+@media (min-width: 1200px){
+  .cat-item {
+    width: 16%;  /* (100 % - 20 %) / 5 */
+  }
+  .cat-item:nth-child(5n) {
+    margin-right: 0;
+    background-color: aquamarine;
+  }
 }
