@@ -22,30 +22,21 @@ body {
   height: 100px;
   margin-right: 5%;
   margin-bottom: 5%; }
-
-@media (max-width: 799px) {
-  .cat-item {
-    width: 30%; }
-
-  .cat-item:nth-child(3n) {
-    margin-right: 0;
-    background-color: sandybrown; } }
-/*combining both min-width and max-width queries*/
-@media (min-width: 800px) and (max-width: 1199px) {
-  .cat-item {
-    width: 21.25%;
-    /* (100% - 15%) / 4 */ }
-
-  .cat-item:nth-child(4n) {
-    margin-right: 0;
-    background-color: orange; } }
-@media (min-width: 1200px) {
-  .cat-item {
-    width: 16%;
-    /* (100 % - 20 %) / 5 */ }
-
-  .cat-item:nth-child(5n) {
-    margin-right: 0;
-    background-color: aquamarine; } }
-
-/*# sourceMappingURL=main.css.map */
+  @media (max-width: 767px) {
+    .cat-item {
+      width: 30%; }
+      .cat-item:nth-child(3n) {
+        margin-right: 0;
+        background-color: sandybrown; } }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .cat-item {
+      width: 21.25%; }
+      .cat-item:nth-child(4n) {
+        margin-right: 0;
+        background-color: orange; } }
+  @media (min-width: 1200px) {
+    .cat-item {
+      width: 16%; }
+      .cat-item:nth-child(5n) {
+        margin-right: 0;
+        background-color: aquamarine; } }

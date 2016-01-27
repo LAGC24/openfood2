@@ -61,43 +61,46 @@ body {
 //  }
 //}
 
+@function calculate-width-percentage($n-columns, $separation-ptc) {
+  $n-separations:         $n-columns - 1;
+  $total-separation-ptc:  $separation-ptc * $n-separations;
+  $total-columns-ptc:     100% - $total-separation-ptc;
+  @return $total-columns-ptc / $n-columns;
+}
 // Food Category items
 .cat-item {
   float: left;
   background-color: gray;
   height: 100px;
 
-  margin-right: 5%;
-  margin-bottom: 5%;
-}
+  $separation-pct: 5%;
+  margin-right:   $separation-pct;
+  margin-bottom:  $separation-pct;
 
-@media (max-width: 799px) {
-  .cat-item {
-    width: 30%;
+  // 3 columns for XS.
+  @media (max-width: $screen-xs-max) {
+    width: calculate-width-percentage(3, $separation-pct); //30%;
+    &:nth-child(3n) {
+      margin-right: 0;  // Last one will not have right margin separation.
+      background-color: sandybrown;
+    }
   }
-  .cat-item:nth-child(3n) {
-    margin-right: 0;
-    background-color: sandybrown;
-  }
-}
 
-/*combining both min-width and max-width queries*/
-@media (min-width: 800px) and (max-width: 1199px) {
-  .cat-item {
-    width: 21.25%; /* (100% - 15%) / 4 */
+  // 4 columns fro SM and MD. Combining both min-width and max-width queries.
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    width: calculate-width-percentage(4, $separation-pct); //21.25%;  // (100% - 15%) / 4
+    &:nth-child(4n) {
+      margin-right: 0;
+      background-color: orange;
+    }
   }
-  .cat-item:nth-child(4n) {
-    margin-right: 0;
-    background-color: orange;
+  // 5 columns for LG.
+  @media (min-width: $screen-lg-min) {
+    width: calculate-width-percentage(5, $separation-pct); //16%;     // (100 % - 20 %) / 5
+    &:nth-child(5n) {
+      margin-right: 0;
+      background-color: aquamarine;
+    }
   }
-}
 
-@media (min-width: 1200px){
-  .cat-item {
-    width: 16%;  /* (100 % - 20 %) / 5 */
-  }
-  .cat-item:nth-child(5n) {
-    margin-right: 0;
-    background-color: aquamarine;
-  }
 }
