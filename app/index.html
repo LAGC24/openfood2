@@ -19,6 +19,7 @@
 <body id="app-layout">
 
 <nav class="navbar navbar-default">
+
     <div class="container">
         <div class="navbar-header">
 
@@ -32,7 +33,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand logo" href="{{ url('/') }}">
-                Laravel
+                MunchieTaxi
             </a>
         </div>
 
@@ -63,6 +64,7 @@
             </ul>
         </div>
     </div>
+
 </nav>
 
 
@@ -110,25 +112,33 @@
   <nav>
     <div class="row">
 
+      <!-- Nav tabs -->
       <div class="col-sm-8 col-md-7 col-md-offset-1">
-        <ul class="nav nav-tabs nav-justified">
-          <li role="presentation" class="active"  ><a href="">Categorias</a></li>
-          <li role="presentation" class=""        ><a href="">Restaurantes</a></li>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#content-categories" aria-controls="content-categories" role="tab" data-toggle="tab">Categorias</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" data-toggle="tab">Restaurantes</a>
+          </li>
         </ul>
       </div>
 
       <div class="col-sm-4 col-md-3">
         <div class="dropdown">
+
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Ordernar por: X
             <span class="caret"></span>
           </button>
+
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li><a href="#"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabéticamente</a></li>
             <li><a href="#"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#"><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercania</a></li>
           </ul>
+
         </div>
       </div>
 
@@ -174,8 +184,20 @@
   <!--</div>-->
   </div>
 
+
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="content-categories">
+          Categorias
+        </div>
+        <div role="tabpanel" class="tab-pane" id="content-restaurants">
+          Restaurantes
+        </div>
+      </div>
+
       <!-- TODO: Iconos con texto inferior -->
       <div class="cat-item">Categoria</div>
       <div class="cat-item">Categoria</div>
