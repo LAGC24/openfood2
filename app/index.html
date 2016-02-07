@@ -68,170 +68,156 @@
 </nav>
 
 
-<!-- Buscar Restaurante -->
-<main class="container">
-  <h2>Buscar Restaurante</h2>
+<main class="container-fluid">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+  <!-- Cart summary -->
+  <section class="cart-summary pull-right col-lg-2">
+    <h1 class="h3">Cart summary</h1>
+    <ul>
+      <li>Elemento 1</li>
+      <li>Elemento 2</li>
+      <li>Elemento 3</li>
+    </ul>
+  </section>
+  <!-- /Cart summary -->
+
+
+  <!-- Buscar Restaurante -->
+  <section class="search-area col-lg-offset-2 col-lg-8">
+    <h1 class="h2">Buscar</h1>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="row">
+          <div class="form-group col-sm-8">
+            <input type="text" class="form-control" name="buscar_restaurante" placeholder="Restaurante">
+          </div>
+          <div class="form-group col-sm-4">
+            <button type="button" class="btn-block btn btn-primary">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="form-group">
+          <label>Area del restaurante</label>
+          <select class="form-control">
+            <option value="monterrey">Monterrey</option>
+            <option value="z1">Zona 1</option>
+            <option value="z2">Zona 2</option>
+            <option value="z3">Zona 3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- /Buscar Restaurante -->
+
+
+  <!-- Ad -->
+  <section class="ads col-lg-offset-2 col-lg-8">
+    <h1 class="h3">Ads</h1>
+  </section>
+  <!-- /Ad -->
+
+
+  <!-- Resultados -->
+  <section class="results col-lg-offset-2 col-lg-8">
+
+    <h1 class="h3">Resultados</h1>
+
+    <nav class="results-nav">
       <div class="row">
-        <div class="form-group col-sm-8">
-          <input type="text" class="form-control" name="buscar_restaurante" placeholder="Restaurante">
+
+        <!-- Nav tabs -->
+        <div class="col-sm-8 col-md-7 col-md-offset-1">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#content-categories" aria-controls="content-categories" role="tab" data-toggle="tab">Categorias</a>
+            </li>
+            <li role="presentation" class="">
+              <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" data-toggle="tab">Restaurantes</a>
+            </li>
+          </ul>
         </div>
-        <div class="form-group col-sm-4">
-          <button type="button" class="btn-block btn btn-primary">Buscar</button>
+
+        <div class="col-sm-4 col-md-3">
+          <div class="dropdown">
+
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Ordernar por: X
+              <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabéticamente</a></li>
+              <li><a href="#"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#"><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercania</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="results-items">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="content-categories" class="tab-pane active" role="tabpanel">
+              <!-- TODO: Iconos con texto inferior -->
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+              <div class="cat-item">Categoria</div>
+            </div>
+            <div id="content-restaurants" class="tab-pane" role="tabpanel">
+              <!-- TODO: Iconos con texto inferior -->
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+              <div class="cat-item">Restaurante</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
 
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-group">
-        <label>Area del restaurante</label>
-        <select class="form-control">
-          <option value="monterrey">Monterrey</option>
-          <option value="z1">Zona 1</option>
-          <option value="z2">Zona 2</option>
-          <option value="z3">Zona 3</option>
-        </select>
-      </div>
-    </div>
-  </div>
+  </section>
+  <!-- /Resultados -->
 
 </main>
-<!-- /Buscar Restaurante -->
-
-
-<!-- Resultados -->
-<section class="container">
-
-  <h3>Resultados</h3>
-
-  <nav>
-    <div class="row">
-
-      <!-- Nav tabs -->
-      <div class="col-sm-8 col-md-7 col-md-offset-1">
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#content-categories" aria-controls="content-categories" role="tab" data-toggle="tab">Categorias</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" data-toggle="tab">Restaurantes</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-sm-4 col-md-3">
-        <div class="dropdown">
-
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Ordernar por: X
-            <span class="caret"></span>
-          </button>
-
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabéticamente</a></li>
-            <li><a href="#"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#"><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercania</a></li>
-          </ul>
-
-        </div>
-      </div>
-
-    </div>
-  </nav>
-
-  <!-- Menu seccionado comentado-->
-  <div class="row">
-  <!--<div class="col-sm-3">-->
-    <!--<div class="sidebar-nav">-->
-      <!--<div class="navbar navbar-default" role="navigation">-->
-        <!--<div class="navbar-header">-->
-          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">-->
-            <!--<span class="sr-only">Toggle navigation</span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-          <!--</button>-->
-          <!--<span class="visible-xs navbar-brand">Sidebar menu</span>-->
-        <!--</div>-->
-        <!--<div class="navbar-collapse collapse sidebar-navbar-collapse">-->
-          <!--<ul class="nav navbar-nav">-->
-            <!--<li class="active"><a href="#">Menu Item 1</a></li>-->
-            <!--<li><a href="#">Menu Item 2</a></li>-->
-            <!--<li class="dropdown">-->
-              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
-              <!--<ul class="dropdown-menu">-->
-                <!--<li><a href="#">Action</a></li>-->
-                <!--<li><a href="#">Another action</a></li>-->
-                <!--<li><a href="#">Something else here</a></li>-->
-                <!--<li class="divider"></li>-->
-                <!--<li class="dropdown-header">Nav header</li>-->
-                <!--<li><a href="#">Separated link</a></li>-->
-                <!--<li><a href="#">One more separated link</a></li>-->
-              <!--</ul>-->
-            <!--</li>-->
-            <!--<li><a href="#">Menu Item 4</a></li>-->
-            <!--<li><a href="#">Reviews <span class="badge">1,118</span></a></li>-->
-          <!--</ul>-->
-        <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  </div>
-
-
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="content-categories">
-          <!-- TODO: Iconos con texto inferior -->
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-          <div class="cat-item">Categoria</div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="content-restaurants">
-          <!-- TODO: Iconos con texto inferior -->
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-          <div class="cat-item">Restaurante</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- /Buscar Restaurante por categoria -->
 
 
 <!-- JavaScripts -->

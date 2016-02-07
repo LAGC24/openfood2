@@ -16,6 +16,11 @@ body {
 .fa-btn {
   margin-right: 6px; }
 
+section.cart-summary, section.search-area, section.ads, section.results,
+section .results-items,
+section .results-nav {
+  border: medium solid #269abc; }
+
 .cat-item {
   float: left;
   background-color: gray;
@@ -40,3 +45,5 @@ body {
       .cat-item:nth-child(5n) {
         margin-right: 0;
         background-color: aquamarine; } }
+
+/*# sourceMappingURL=main.css.map */

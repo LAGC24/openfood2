@@ -1,3 +1,7 @@
+// Debug vars
+$draw-borders: true;
+
+
 // Small screen / tablet
 $screen-sm-min:              768px;
 // Medium screen / desktop
@@ -38,6 +42,39 @@ body {
 .fa-btn {
   margin-right: 6px;
 }
+
+
+// Sections: --------------------------------------------------------------------------------------------------------
+// Debug borders
+@if ($draw-borders) {
+  section {
+    &.cart-summary,
+    &.search-area,
+    &.ads,
+    &.results,
+    .results-items,
+    .results-nav {
+      border: medium solid #269abc;
+    }
+  }
+}
+
+// Cart summary
+section.cart-summary {
+
+}
+
+// Ads
+section.ads {
+
+}
+
+// Results
+section.items-results {
+
+}
+
+// --------------------------------------------------------------------------------------------------------
 
 // Sidebar menu section (commented, not used)
 //@media (min-width: 768px) {
