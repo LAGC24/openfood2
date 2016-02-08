@@ -32,7 +32,7 @@ section .results-nav {
       width: 30%; }
       .cat-item:nth-child(3n) {
         margin-right: 0;
-        background-color: sandybrown; } }
+        background-color: mediumpurple; } }
   @media (min-width: 768px) and (max-width: 1199px) {
     .cat-item {
       width: 21.25%; }
@@ -45,5 +45,3 @@ section .results-nav {
       .cat-item:nth-child(5n) {
         margin-right: 0;
         background-color: aquamarine; } }
-
-/*# sourceMappingURL=main.css.map */
