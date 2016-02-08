@@ -16,10 +16,17 @@ body {
 .fa-btn {
   margin-right: 6px; }
 
-section.cart-summary, section.search-area, section.ads, section.results,
-section .results-items,
-section .results-nav {
+section.cart-summary,
+section.search-area,
+aside.ads,
+section.results,
+.results-items,
+.results-nav {
   border: medium solid #269abc; }
+
+.results-nav .btn {
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .cat-item {
   float: left;

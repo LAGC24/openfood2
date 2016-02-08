@@ -47,15 +47,13 @@ body {
 // Sections: --------------------------------------------------------------------------------------------------------
 // Debug borders
 @if ($draw-borders) {
-  section {
-    &.cart-summary,
-    &.search-area,
-    &.ads,
-    &.results,
-    .results-items,
-    .results-nav {
-      border: medium solid #269abc;
-    }
+  section.cart-summary,
+  section.search-area,
+  aside.ads,
+  section.results,
+  .results-items,
+  .results-nav {
+    border: medium solid #269abc;
   }
 }
 
@@ -65,13 +63,18 @@ section.cart-summary {
 }
 
 // Ads
-section.ads {
+aside.ads {
 
 }
 
 // Results
 section.items-results {
 
+}
+.results-nav .btn {
+  // To vertically fill as the tabs do (due their 10px padding instead of 6px of buttons).
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 // --------------------------------------------------------------------------------------------------------
