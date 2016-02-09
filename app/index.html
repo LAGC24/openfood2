@@ -137,12 +137,12 @@
         <div class="col-sm-8 col-md-7 col-md-offset-1">
           <ul class="nav nav-tabs nav-justified" role="tablist">
             <li role="presentation" class="active" ng-class="{ active: isSelected(0) }">
-              <a href="#content-categories" aria-controls="content-categories" role="tab" ng-click="selectTab(0)">
+              <a href="" aria-controls="content-categories" role="tab" ng-click="selectTab(0)">
                 Categorias
               </a>
             </li>
             <li role="presentation" class="" ng-class="{ active: isSelected(1) }">
-              <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" ng-click="selectTab(1)">
+              <a href="" aria-controls="content-restaurants" role="tab" ng-click="selectTab(1)">
                 Restaurantes
               </a>
             </li>
@@ -154,14 +154,14 @@
           <div class="dropdown">
 
             <button class="btn btn-default btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Ordernar por: X <span class="caret"></span>
+              Ordernado por <span ng-bind-html="getOrderbyLabel()"></span> <span class="caret"></span>
             </button>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabéticamente</a></li>
-              <li><a href="#"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
+              <li><a ng-click="orderBy('alphabet')"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabeto</a></li>
+              <li><a ng-click="orderBy('popularity')"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#"><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercania</a></li>
+              <li><a ng-click="orderBy('location')" ng-click=""><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercanía</a></li>
             </ul>
 
           </div>
@@ -293,6 +293,7 @@
 <script src="angular/angular.min.js"></script>
 <script src="angular/angular-animate.min.js"></script>
 <script src="angular/angular-route.min.js"></script>
+<script src="angular/angular-sanitize.min.js"></script>
 
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>

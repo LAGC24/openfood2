@@ -13,7 +13,8 @@
 angular
   .module('munchieTaxiApp', [
     'ngAnimate',
-    'ngRoute'
+    'ngRoute',
+    'ngSanitize'
   ])
   /*.config(function ($routeProvider, $locationProvider) {
     $routeProvider

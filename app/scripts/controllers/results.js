@@ -19,6 +19,35 @@ angular.module('munchieTaxiApp')
       'Mariscos'
     ];
 
+    var currentOrderBy = 'alphabet';
+
+    $scope.orderBy = function(orderName) {
+      // Todo Set actions/filtering.
+      switch (orderName) {
+        case 'alphabet':
+          currentOrderBy = 'alphabet';
+          break;
+        case 'popularity':
+          currentOrderBy = 'popularity';
+          break;
+        case 'location':
+          currentOrderBy = 'location';
+          break;
+      }
+    };
+
+    $scope.getOrderbyLabel = function() {
+      switch (currentOrderBy) {
+        case 'alphabet':
+              return '<span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabeto';
+        case 'popularity':
+              return '<span class="fa fa-fire" aria-hidden="true"></span> Popularidad';
+        case 'location':
+              return '<span class="fa fa-location-arrow" aria-hidden="true"></span> Cercanía';
+      }
+    }
+
+
     $scope.step = 0;
     $scope.tab = 0;
     $scope.resultType = 'Categorías';
