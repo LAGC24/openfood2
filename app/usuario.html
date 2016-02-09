@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mi cuenta - MunchieTaxi</title>
+
+  <!-- Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'
+        type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+  <!-- Styles -->
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="stylesheets/bootstrap-custom.css" rel="stylesheet">
+  <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Ver usuario
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form" method="POST" action="#">
+            <div class="form-group">
+              <label class="col-md-4 control-label">Nombre:</label>
+
+              <div class="col-md-6">
+                <!--<input type="text" class="form-control" name="name" value="{{ $user->USER_NAME }}">-->
+                <input type="text" class="form-control" name="name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Apellido</label>
+
+              <div class="col-md-6">
+                <!--<input type="text" class="form-control" name="lastName" value="{{ $user->USER_LAST_NAME }}">-->
+                <input type="text" class="form-control" name="lastName">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Usuario</label>
+
+              <div class="col-md-6">
+                <!--<input type="text" class="form-control" name="user" value="{{ $user->USER_NICK_NAME }}">-->
+                <input type="text" class="form-control" name="user">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Dirección</label>
+
+              <div class="col-md-6">
+                <!--<input type="text" class="form-control" name="user" value="{{ $user->USER_ADDRESS }}">-->
+                <input type="text" class="form-control" name="user">
+              </div>
+            </div>
+
+            <p>Llene los siguientes campos si desea cambiar la contraseña, de lo contrario solo dejelos vacios.</p>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Contraseña Actual</label>
+
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Nueva Contraseña</label>
+
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password_new">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Confirmar contraseña</label>
+
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password_confirmation">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-4">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa fa-btn fa-floppy-o"></i>Guardar
+                </button>
+                <button type="submit" class="btn btn-danger">
+                  <i class="fa fa-btn fa-times"></i>Cancelar
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <p><a href="detalles-pago.html">Datos de pago y envío</a></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

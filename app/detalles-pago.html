@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pago y Envío - MunchieTaxi</title>
+
+  <!-- Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'
+        type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+  <!-- Styles -->
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="stylesheets/bootstrap-custom.css" rel="stylesheet">
+  <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">Pyment address</div>
+
+        <div class="panel-body">
+          <!-- Copiado de PCEL directo -->
+          <div id="payment-address">
+            <div class="onecheckout-heading"><span>Total y Detalles de Facturación</span></div>
+            <div class="onecheckout-content">
+              <div class="left">
+                <span class="required">*</span> Nombre:<br>
+                <input type="text" name="firstname" value="" class="small-field"><br>
+              </div>
+              <div class="right">
+                <span class="required">*</span> Apellidos:<br>
+                <input type="text" name="lastname" value="" class="small-field"><br>
+              </div>
+              <div class="divclear"></div>
+              <br>
+              <div class="divclear">
+                <span class="required">*</span> E-Mail:<br>
+                <input type="text" name="email" value="" class="large-field"><br>
+                <br>
+                Empresa:<br>
+                <input type="text" name="company" value="" class="large-field"><br>
+
+
+                <br>RFC:(Genérico=XAXX010101000)
+                <input type="text" name="rfc" value="XAXX010101000" class="large-field"><br>
+
+
+                <br>
+                <div class="left">
+                  <span class="required">*</span> Teléfono (c/lada):<br>
+                  <input type="text" name="telephone" value="" class="small-field"><br>
+                </div>
+                <div class="right">
+                  Teléfono oficina c/lada<br>
+                  <input type="text" name="office" value="" class="small-field"><br>
+                  <input type="hidden" name="fax" value="">
+                </div>
+                <br>
+                <div class="divclear"></div>
+
+
+                <br>
+                <span class="required">*</span> Dirección:<br>
+                <input type="text" name="address_1" value="" class="large-field"><br><br>
+
+                <div class="left">
+                  <span class="required">*</span> No. Exterior:<br>
+                  <input type="text" name="no_ext" value="" size="5"><br>
+                </div>
+                <div class="right">
+                  No. Interior:<br>
+                  <input type="text" name="no_int" value="" size="5"><br>
+                </div>
+                <br>
+
+
+                <br><br><br>
+                <span class="required">*</span>Colonia:<br>
+                <input type="text" name="address_2" value="" class="large-field"><br>
+                <br>
+                <span class="required">*</span> Entre calles:<br>
+                <input type="text" name="entrecalles" value="" class="large-field"><br>
+
+              </div>
+
+
+              <br>
+              <div class="left">
+                <span class="required">*</span> Ciudad:<br>
+                <input type="text" name="city" value="" class="small-field"><br>
+              </div>
+              <div class="right">
+                <span id="payment-postcode-required" class="required">*</span> Código Postal:&nbsp;<a id="postal-link-p"
+                                                                                                      href="#"
+                                                                                                      class="cboxElement">Buscar</a><br>
+                <input type="text" id="id_postcode_p" name="postcode" value="" size="5"><br>
+              </div>
+
+              <div class="divclear">
+                <br>
+                <span class="required">*</span> País:<br>
+                <select name="country_id" class="large-field">
+                  <option value=""> --- Por Favor Seleccione ---</option>
+                  <option value="138" selected="selected">Mexico</option>
+                </select>
+                <br>
+                <br>
+                <span class="required">*</span> Estado:<br>
+                <select name="zone_id" class="large-field">
+                  <option value=""> --- Por Favor Seleccione ---</option>
+                  <option value="3968">Aguascalientes</option>
+                  <option value="2146">Baja California Norte</option>
+                  <option value="2147">Baja California Sur</option>
+                  <option value="2148">Campeche</option>
+                  <option value="2149">Chiapas</option>
+                  <option value="2150">Chihuahua</option>
+                  <option value="2151">Coahuila</option>
+                  <option value="2152">Colima</option>
+                  <option value="2153">Distrito Federal</option>
+                  <option value="2154">Durango</option>
+                  <option value="2155">Guanajuato</option>
+                  <option value="2156">Guerrero</option>
+                  <option value="2157">Hidalgo</option>
+                  <option value="2158">Jalisco</option>
+                  <option value="2159">Mexico</option>
+                  <option value="2160">Michoacan de Ocampo</option>
+                  <option value="2161">Morelos</option>
+                  <option value="2162">Nayarit</option>
+                  <option value="2163" selected="selected">Nuevo Leon</option>
+                  <option value="2164">Oaxaca</option>
+                  <option value="2165">Puebla</option>
+                  <option value="2166">Queretaro de Arteaga</option>
+                  <option value="2167">Quintana Roo</option>
+                  <option value="2168">San Luis Potosi</option>
+                  <option value="2169">Sinaloa</option>
+                  <option value="2170">Sonora</option>
+                  <option value="2171">Tabasco</option>
+                  <option value="2172">Tamaulipas</option>
+                  <option value="2173">Tlaxcala</option>
+                  <option value="2174">Veracruz</option>
+                  <option value="2175">Yucatan</option>
+                  <option value="2176">Zacatecas</option>
+                </select>
+                <br>
+                <input type="checkbox" name="account" value="1" id="account" checked="checked" style="display:none;">
+                <br>
+              </div>
+              <div id="reg-cpanle" class="divclear">
+                <div class="left">
+                  <span class="required">*</span> Contraseña:<br>
+                  <input type="password" name="password" value="" class="small-field"><br>
+                </div>
+                <div class="right">
+                  <span class="required">*</span> Confirme Contraseña: <br>
+                  <input type="password" name="confirm" value="" class="small-field"><br>
+                </div>
+                <div style="clear: both; padding-top: 15px; border-top: 1px solid #EEEEEE;">
+                  <input type="checkbox" name="newsletter" value="1" id="newsletter">
+                  <label for="newsletter">Deseo suscribirme al PCEL boletín.</label>
+                  <br>
+                  <input type="checkbox" name="shipping_address" value="1" id="shipping" checked="checked">
+                  <label for="shipping">Mi dirección de Envío y Facturación es la misma.</label>
+                  <br>
+                  <br>
+                </div>
+                <div class="buttons">
+                  <input type="checkbox" name="agree" value="1">He leído y estoy de acuerdo con el <a
+                  class="colorbox cboxElement"
+                  href="https://pcel.com/index.php?route=information/information/info&amp;information_id=3"
+                  alt="Aviso de Privacidad"><b>Aviso de Privacidad</b></a></div>
+
+              </div>
+            </div>
+          </div>
+          <!-- Fin de la copia de pcel -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
