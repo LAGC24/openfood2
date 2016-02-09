@@ -77,9 +77,10 @@ aside.ads {
         margin-top: -10%;
         font-size: 0.8em; } }
     .cat-item a:hover {
-      background-color: rgba(206, 61, 26, 0.71);
-      color: #e6e6e6; }
+      background-color: #f1a390;
+      color: white; }
     .cat-item a:active {
+      background-color: #e55430;
       transition: all 0.05s ease-out;
       top: -2.5%;
       bottom: -2.5%;

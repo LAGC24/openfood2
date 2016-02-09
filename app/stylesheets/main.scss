@@ -178,10 +178,11 @@ section.items-results {
     text-decoration: none;
     color: #fff;
     &:hover {
-      background-color: darken(rgba(230, 88, 53, 0.71), 10%);
-      color: darken(#fff, 10%);
+      background-color: lighten(rgb(230, 88, 53), 20%);
+      color: lighten(#fff, 10%); // redundant lighten white...
     }
     &:active {
+      background-color: darken(rgb(230, 88, 53), 1%);
       transition: all 0.05s ease-out;
       top: -2.5%;
       bottom: -2.5%;
