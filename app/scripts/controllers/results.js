@@ -11,12 +11,16 @@ angular.module('munchieTaxiApp')
   .controller('ResultsController', ['$scope', function ($scope) {
 
     $scope.categories = [
-      'Antojitos mexicanos',
-      'Taquerías',
-      'Comida italiana',
-      'Pizzerias',
-      'Vegetariana',
-      'Mariscos'
+      //{ name: 'Antojitos mexicanos', iconClass: 'flaticon-mexican8' },
+      { name: 'Taquerías', iconClass: 'flaticon-mexican8' },
+      { name: 'Carne asada', iconClass: 'flaticon-steak' },
+      { name: 'Comida italiana', iconClass: 'flaticon-spaghetti1' },
+      { name: 'Pizzerias', iconClass: 'flaticon-pizza3' },
+      { name: 'Comida rápida', iconClass: 'flaticon-fast-food' },
+      { name: 'Vegetariana', iconClass: 'flaticon-salad' },
+      { name: 'Mariscos', iconClass: 'flaticon-fishes9' },
+      { name: 'Oriental', iconClass: 'flaticon-noodles4' },
+      { name: 'Sushi', iconClass: 'flaticon-sushi15' }
     ];
 
     var currentOrderBy = 'alphabet';

@@ -191,7 +191,7 @@
 
             <div id="content-categories" class="" role="tabpanel" ng-show="isOnStep(0)">
               <article class="cat-item" ng-repeat="category in categories" ng-click="resultsCtrl.processItem(category)">
-                <a href=""><span class="flaticon-fast-food"></span><h1>{{category}}</h1></a>
+                <a href=""><span ng-class="category.iconClass"></span><h1>{{category.name}}</h1></a>
               </article>
             </div>
 
