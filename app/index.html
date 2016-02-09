@@ -17,7 +17,7 @@
     <link href="stylesheets/main.css" rel="stylesheet">
 </head>
 
-<body id="app-layout">
+<body id="app-layout" ng-app="munchieTaxiApp">
 
 <nav class="navbar navbar-default">
 
@@ -69,7 +69,7 @@
 </nav>
 
 
-<main class="container-fluid">
+<main class="container-fluid" ng-controller="MainController as mainCtrl">
   <!-- Cart summary -->
   <section class="cart-summary  col-lg-push-10 col-lg-2">
     <h1 class="h3">Cart summary</h1>
@@ -82,17 +82,17 @@
 
 
   <!-- Search Restaurant -->
-  <section class="search-area  col-lg-pull-2 col-lg-offset-2 col-lg-8">
+  <section class="search-area  col-lg-pull-2 col-lg-offset-2 col-lg-8" ng-controller="SearchController as searchCtrl">
     <h1 class="h2">Buscar</h1>
 
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="row">
           <div class="form-group col-sm-8">
-            <input type="text" class="form-control" name="buscar_restaurante" placeholder="Restaurante">
+            <input type="text" class="form-control" name="buscar_restaurante" placeholder="Restaurante" ng-model="searchTerm">
           </div>
           <div class="form-group col-sm-4">
-            <button type="button" class="btn-block btn btn-primary">Buscar</button>
+            <button type="button" class="btn-block btn btn-primary" ng-click="processSearch(searchTerm, region)">Buscar</button>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="form-group">
           <label>Area del restaurante</label>
-          <select class="form-control">
+          <select class="form-control" ng-model="region">
             <option value="monterrey">Monterrey</option>
             <option value="z1">Zona 1</option>
             <option value="z2">Zona 2</option>
@@ -117,14 +117,16 @@
 
 
   <!-- Ad -->
-  <aside class="ads  col-lg-offset-2 col-lg-8">
+  <aside class="ads  col-lg-offset-2 col-lg-8" ng-class="{compressed: isAddCompressed }">
     <h1 class="h3">Ads</h1>
+    <a href="" ng-click="isAddCompressed = false">
+      <img src="images/ads/PremiumSinglesPizzaHut.jpg" class="img-responsive center-block">
+    </a>
   </aside><!-- /Ad -->
 
 
   <!-- Results -->
-  <section class="results  col-lg-offset-2 col-lg-8">
-
+  <section class="results  col-lg-offset-2 col-lg-8" ng-controller="ResultsController as resultsCtrl">
     <h1 class="h3">Resultados</h1>
 
     <!-- Results navigation -->
@@ -134,11 +136,15 @@
         <!-- Tabs -->
         <div class="col-sm-8 col-md-7 col-md-offset-1">
           <ul class="nav nav-tabs nav-justified" role="tablist">
-            <li role="presentation" class="active">
-              <a href="#content-categories" aria-controls="content-categories" role="tab" data-toggle="tab">Categorias</a>
+            <li role="presentation" class="active" ng-class="{ active: resultsCtrl.isSelected(0) }">
+              <a href="#content-categories" aria-controls="content-categories" role="tab" ng-click="resultsCtrl.selectTab(0)">
+                Categorias
+              </a>
             </li>
-            <li role="presentation" class="">
-              <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" data-toggle="tab">Restaurantes</a>
+            <li role="presentation" class="" ng-class="{ active: resultsCtrl.isSelected(1) }">
+              <a href="#content-restaurants" aria-controls="content-restaurants" role="tab" ng-click="resultsCtrl.selectTab(1)">
+                Restaurantes
+              </a>
             </li>
           </ul>
         </div><!-- /Tabs -->
@@ -171,55 +177,29 @@
       <!-- Results Items navigation -->
       <nav class="">
         <ol class="breadcrumb">
-          <li><a href="{{search}}/{{type}}">{{type}} ({{search}})</a></li>
-          <li><a href="#">Restaurantes</a></li>
-          <li class="active">{{restaurant}}</li>
+          <li><a href="{{resultsCtrl.resultType}}/{{searchTerm}}">{{resultsCtrl.resultType}} ({{searchTerm}})</a></li>
+          <li ng-show="resultsCtrl.isSelected(0)"><a href="#">Restaurantes</a></li>
+          <li class="active">restaurant</li>
         </ol>
       </nav><!-- /Results Items navigation -->
 
+      <!-- Results Items tab panes -->
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
-
-          <!-- Results Items Tab panes -->
           <div class="tab-content">
-            <div id="content-categories" class="tab-pane " role="tabpanel">
-              <!-- TODO: Iconos con texto inferior -->
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-              <article class="cat-item">Categoria</article>
-            </div>
-            <div id="content-restaurants" class="tab-pane" role="tabpanel">
-              <!-- TODO: Iconos con texto inferior -->
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
-              <article class="cat-item">Restaurante</article>
+            <div id="content-categories" class="" role="tabpanel" ng-show="resultsCtrl.isSelected(0)">
+              <article class="cat-item" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-click="resultsCtrl.processItem(n)">
+                <a href=""><h1>Categoría</h1></a>
+              </article>
             </div>
 
-            <div class="tab-pane active" role="tabpanel">
+            <div id="content-restaurants" class="" role="tabpanel" ng-show="resultsCtrl.isSelected(1)">
+              <article class="cat-item" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-click="resultsCtrl.processItem(n)">
+                <a href=""><h1>Restaurante</h1></a>
+              </article>
+            </div>
+
+            <div id="content-menu" class="" role="tabpanel" ng-show="resultsCtrl.step === 2">
 
               <div class="cat-item">img</div>
 
@@ -296,10 +276,10 @@
               </ul>
             </div>
 
-          </div><!-- /Results Items Tab panes -->
-
+          </div>
         </div>
-      </div>
+      </div><!-- /Results Items tab panes -->
+      
     </div><!-- /Results Items area -->
 
   </section><!-- /Results -->
@@ -309,6 +289,15 @@
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="angular/angular.min.js"></script>
+<script src="angular/angular-animate.min.js"></script>
+<script src="angular/angular-route.min.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/search.js"></script>
+<script src="scripts/controllers/results.js"></script>
+
 
 </body>
 </html>

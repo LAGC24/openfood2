@@ -1,6 +1,9 @@
 // Debug vars
-$draw-borders: true;
+$debug:         false;
+$draw-borders:  $debug;
 
+//noinspection CssUnknownTarget
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 
 // Small screen / tablet
 $screen-sm-min:              768px;
@@ -36,7 +39,8 @@ $screen-md-max:              ($screen-lg-min - 1);
 
 // MISC
 body {
-  font-family: 'Lato',sans-serif;
+
+  font-family: 'Open Sans', 'Lato',sans-serif;
 }
 
 .fa-btn {
@@ -64,7 +68,25 @@ section.cart-summary {
 
 // Ads
 aside.ads {
+  //background-color: rgba(38, 154, 188, 0.41);
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: rgba(128, 128, 128, 0.43);
+  padding: 8px 0;
 
+  transition: height 1s;
+  height: 24em;
+  &.compressed {
+    height: 10em;
+  }
+
+  h1 {
+    position: absolute;
+  }
+
+  .img-responsive {
+    max-height: 100%;
+  }
 }
 
 // Results
@@ -109,9 +131,33 @@ section.items-results {
 }
 // Food Category items
 .cat-item {
+  // 1:1 aspect ratio hack (using padding-bottom = width).
+  position: relative;
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    //text-align: center;
+    //position: relative;
+    display: flex;
+    justify-content: center;
+    h1 {
+      font-size: 1em;
+      color: #fff;
+      align-self: flex-end;
+      //position: absolute;
+      //bottom: 10%;
+      //left: 50%;
+      //right: 50%;
+    }
+  }
+  //height: 100px;
+
   float: left;
-  background-color: gray;
-  height: 100px;
+  background-color: rgba(230, 88, 53, 0.71);
 
   $separation-pct: 5%;
   margin-right:   $separation-pct;
@@ -119,27 +165,36 @@ section.items-results {
 
   // 3 columns for XS.
   @media (max-width: $screen-xs-max) {
-    width: calculate-width-percentage(3, $separation-pct); //30%;
+    $width: calculate-width-percentage(3, $separation-pct); //30%;
+    width: $width;
+    padding-bottom: $width;
+
     &:nth-child(3n) {
       margin-right: 0;  // Last one will not have right margin separation.
-      background-color: mediumpurple;
+      @if($debug) { background-color: mediumpurple; }
     }
   }
 
   // 4 columns fro SM and MD. Combining both min-width and max-width queries.
   @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-    width: calculate-width-percentage(4, $separation-pct); //21.25%;  // (100% - 15%) / 4
+    $width: calculate-width-percentage(4, $separation-pct); //21.25%;  // (100% - 15%) / 4
+    width: $width;
+    padding-bottom: $width;
+
     &:nth-child(4n) {
       margin-right: 0;
-      background-color: orange;
+      @if($debug) { background-color: orange; }
     }
   }
   // 5 columns for LG.
   @media (min-width: $screen-lg-min) {
-    width: calculate-width-percentage(5, $separation-pct); //16%;     // (100 % - 20 %) / 5
+    $width: calculate-width-percentage(5, $separation-pct); //16%;     // (100 % - 20 %) / 5
+    width: $width;
+    padding-bottom: $width;
+
     &:nth-child(5n) {
       margin-right: 0;
-      background-color: aquamarine;
+      @if($debug) { background-color: aquamarine; }
     }
   }
 
