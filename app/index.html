@@ -161,7 +161,7 @@
               <li><a ng-click="orderBy('alphabet')"><span class="fa fa-sort-alpha-asc" aria-hidden="true"></span> Alfabeto</a></li>
               <li><a ng-click="orderBy('popularity')"><span class="fa fa-fire" aria-hidden="true"></span> Popularidad</a></li>
               <li role="separator" class="divider"></li>
-              <li><a ng-click="orderBy('location')" ng-click=""><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercanía</a></li>
+              <li><a ng-click="orderBy('location')"><span class="fa fa-location-arrow" aria-hidden="true"></span> Cercanía</a></li>
             </ul>
 
           </div>
@@ -177,9 +177,9 @@
       <!-- Results Items navigation -->
       <nav class="">
         <ol class="breadcrumb">
-          <li><a href="{{resultsCtrl.resultType}}/{{searchTerm}}">{{resultsCtrl.resultType}} ({{searchTerm}})</a></li>
-          <li ng-show="resultsCtrl.isSelected(0)"><a href="#">Restaurantes</a></li>
-          <li class="active">restaurant</li>
+          <li><a nhref="{{resultsCtrl.resultType}}/{{searchTerm}}" ng-click="processItem(0)">{{resultsCtrl.resultType}} ({{searchTerm}})</a></li>
+          <li ng-show="resultsCtrl.isSelected(0)"><a href="" ng-click="processItem(1)">Restaurantes</a></li>
+          <li class="-active"><a href="" ng-click="processItem(2)">restaurant-menu</a></li>
         </ol>
       </nav><!-- /Results Items navigation -->
 
@@ -188,19 +188,19 @@
         <div class="col-xs-12 col-md-10 col-md-offset-1">
           <div class="tab-content">
 
-            <div id="content-categories" class="" role="tabpanel" ng-show="isSelected(0)">
+            <div id="content-categories" class="" role="tabpanel" ng-show="isOnStep(0)">
               <article class="cat-item" ng-repeat="category in categories" ng-click="resultsCtrl.processItem(category)">
                 <a href=""><h1>{{category}}</h1></a>
               </article>
             </div>
 
-            <div id="content-restaurants" class="" role="tabpanel" ng-show="isSelected(1)">
+            <div id="content-restaurants" class="" role="tabpanel" ng-show="isOnStep(1)">
               <article class="cat-item" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-click="resultsCtrl.processItem(n)">
                 <a href=""><h1>Restaurante</h1></a>
               </article>
             </div>
 
-            <div id="content-menu" class="" role="tabpanel" ng-show="resultsCtrl.step === 2">
+            <div id="content-menu" class="" role="tabpanel" ng-show="isOnStep(2)">
 
               <div class="cat-item">img</div>
 

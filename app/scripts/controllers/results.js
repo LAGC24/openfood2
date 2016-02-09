@@ -78,6 +78,13 @@ angular.module('munchieTaxiApp')
       else {
         $scope.step = 0;
       }
-    }
+    };
+
+    $scope.isOnStep = function(stepToCheck) {
+      if($scope.step == stepToCheck)
+        return true;
+      else
+        return false;
+    };
 
   }]);
