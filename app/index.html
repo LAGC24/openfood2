@@ -172,7 +172,7 @@
 
 
     <!-- Results Items area -->
-    <div class="results-items">
+    <div class="results-items ng-cloak">
 
       <!-- Results Items navigation -->
       <nav class="">
@@ -187,6 +187,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
           <div class="tab-content">
+
             <div id="content-categories" class="" role="tabpanel" ng-show="resultsCtrl.isSelected(0)">
               <article class="cat-item" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-click="resultsCtrl.processItem(n)">
                 <a href=""><h1>Categoría</h1></a>
