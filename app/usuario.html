@@ -81,7 +81,7 @@
         <div class="panel-body">
           <form class="form-horizontal" role="form" method="POST" action="#">
             <div class="form-group">
-              <label class="col-md-4 control-label">Nombre:</label>
+              <label class="col-md-4 control-label">Nombre</label>
 
               <div class="col-md-6">
                 <!--<input type="text" class="form-control" name="name" value="{{ $user->USER_NAME }}">-->
@@ -99,24 +99,33 @@
             </div>
 
             <div class="form-group">
-              <label class="col-md-4 control-label">Usuario</label>
+              <label class="col-md-4 control-label">Email</label>
 
               <div class="col-md-6">
-                <!--<input type="text" class="form-control" name="user" value="{{ $user->USER_NICK_NAME }}">-->
-                <input type="text" class="form-control" name="user">
+                <!--<input type="email" class="form-control" name="email" value="{{ old('email') }}">-->
+                <input type="email" class="form-control" name="email" disabled>
               </div>
             </div>
 
-            <div class="form-group">
-              <label class="col-md-4 control-label">Dirección</label>
+            <!--<div class="form-group">-->
+              <!--<label class="col-md-4 control-label">Usuario</label>-->
 
-              <div class="col-md-6">
-                <!--<input type="text" class="form-control" name="user" value="{{ $user->USER_ADDRESS }}">-->
-                <input type="text" class="form-control" name="user">
-              </div>
-            </div>
+              <!--<div class="col-md-6">-->
+                <!--&lt;!&ndash;<input type="text" class="form-control" name="user" value="{{ $user->USER_NICK_NAME }}">&ndash;&gt;-->
+                <!--<input type="text" class="form-control" name="user">-->
+              <!--</div>-->
+            <!--</div>-->
 
-            <p>Llene los siguientes campos si desea cambiar la contraseña, de lo contrario solo dejelos vacios.</p>
+            <!--<div class="form-group">-->
+              <!--<label class="col-md-4 control-label">Dirección</label>-->
+
+              <!--<div class="col-md-6">-->
+                <!--&lt;!&ndash;<input type="text" class="form-control" name="user" value="{{ $user->USER_ADDRESS }}">&ndash;&gt;-->
+                <!--<input type="text" class="form-control" name="user">-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <p>Llene los siguientes campos si desea cambiar la contraseña, de lo contrario solo déjelos vacíos.</p>
 
             <div class="form-group">
               <label class="col-md-4 control-label">Contraseña Actual</label>
@@ -154,7 +163,13 @@
             </div>
           </form>
 
-          <p><a href="detalles-pago.html">Datos de pago y envío</a></p>
+          <p>
+            Ver también
+            <ul>
+              <li><a href="detalles-pago.html">Datos de pago y envío</a></li>
+              <li><a href="carrito.html">Mi carrito</a></li>
+            </ul>
+          </p>
 
         </div>
       </div>
