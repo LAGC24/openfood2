@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mi carrito - MunchieTaxi</title>
+
+  <!-- Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet'
+        type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+  <!-- Styles -->
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="stylesheets/bootstrap-custom.css" rel="stylesheet">
+  <link href="stylesheets/main.css" rel="stylesheet">
+
+  <style>
+    .js-qty, .ajaxcart__qty {
+      position: relative;
+      /*margin-bottom: 1em;*/
+      max-width: 70px;
+      /*min-width: 75px;*/
+      width: 75px;
+      overflow: visible;
+      backface-visibility: hidden;
+    }
+    .js-qty__adjust, .ajaxcart__qty-adjust {
+      cursor: pointer;
+      position: absolute;
+      display: block;
+      top: -1px;
+      bottom: -1px;
+      border: 0 none;
+      background: none;
+      text-align: center;
+      overflow: hidden;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+    .js-qty__adjust--minus, .ajaxcart__qty--minus {
+      left: 0;
+    }
+    .js-qty__adjust--plus, .ajaxcart__qty--plus {
+      right: 0;
+    }
+    .js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
+      /*background: -webkit-linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
+      /*background: linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
+      background-color: #ebebeb;
+      font-weight: bold;
+    }
+    .js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 5px 25px;
+      margin: 0;
+      border-color: #8D8F93;
+    }
+
+
+    .bordered {
+      border: 1px solid gainsboro;
+    }
+
+    .js-qty {
+      /*margin-top: 10%;*/
+      margin-left: 8px;
+    }
+
+    .img-responsive {
+      display: block;
+      max-width: 120px;
+      height: auto;
+      max-height: 80px;
+
+      margin-right: 8px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+
+      <!-- Collapsed Hamburger -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <!-- Branding Image -->
+      <!--<a class="navbar-brand logo" href="{{ url('/') }}">-->
+      <a class="navbar-brand logo" href="index.html">
+        MunchieTaxi
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="spark-navbar-collapse">
+      <!-- Left Side Of Navbar -->
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+
+      <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Authentication Links -->
+        <!--@if (Auth::guest())-->
+        <!--@else-->
+        <li class="active dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Usuario <span class="caret"></span>
+          </a>
+
+          <ul class="dropdown-menu" role="menu">
+            <!--<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>-->
+            <li><a href="usuario.html"><i class="fa fa-btn fa-user"></i> Mi cuenta</a></li>
+            <li class="active"><a href="carrito.html"><i class="fa fa-btn fa-shopping-cart"></i> Mi carrito</a></li>
+            <li><a href="detalles-pago.html"><i class="fa fa-btn fa-truck"></i> Datos de Pago y Envío</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="index.html"><i class="fa fa-btn fa-sign-out"></i> Cerrar sesión</a></li>
+          </ul>
+        </li>
+        <!--@endif-->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">Mi carrito</div>
+
+        <form class="panel-body" role="form" method="POST" action="#">
+
+          <!-- One restaurant section-->
+          <section class="">
+            <h1 class="h3">Pizzas Hat</h1>
+            <ul class="media-list">
+              <li class="bordered">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <img class="pull-left img-responsive" src="images/restaurants/generic/peperonni.jpg" alt="...">
+                    <div class="pull-right text-center">
+                      <div class="js-qty">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
+                        </button>
+                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
+                               pattern="[0-9]*" name="quantity" id="">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
+                        </button>
+                      </div>
+                      <span><strong>$100.00</strong></span>
+                    </div>
+                    <h4 class="">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                  </div>
+                </div>
+              </li>
+              <li class="bordered">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza%20margarita.jpg" alt="...">
+                    <div class="pull-right text-center">
+                      <div class="js-qty">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
+                        </button>
+                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
+                               pattern="[0-9]*" name="quantity" id="">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
+                        </button>
+                      </div>
+                      <span><strong>$100.00</strong></span>
+                    </div>
+                    <h4 class="">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- One restaurant section-->
+          <section class="">
+            <h1 class="h3">Pizzas Dominal</h1>
+            <ul class="media-list">
+              <li class="bordered">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza-hawaina-02.png" alt="...">
+                    <div class="pull-right text-center">
+                      <div class="js-qty">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
+                        </button>
+                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
+                               pattern="[0-9]*" name="quantity" id="">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
+                        </button>
+                      </div>
+                      <span><strong>$150.00</strong></span>
+                    </div>
+                    <h4 class="">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                  </div>
+                </div>
+              </li>
+              <li class="bordered">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza%20romana.jpg" alt="...">
+                    <div class="pull-right text-center">
+                      <div class="js-qty">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
+                        </button>
+                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
+                               pattern="[0-9]*" name="quantity" id="">
+                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
+                        </button>
+                      </div>
+                      <span><strong>$150.00</strong></span>
+                    </div>
+                    <h4 class="">Media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!--Total-->
+          <section class="text-right">
+            <div class="h3">Sub Total:<strong>$500.00</strong></div>
+            <div class="h4">+ Envío:<strong>$80.00</strong></div>
+            <div class="h3"> Total: <strong>$580.00</strong></div>
+          </section>
+
+          <p>
+            <a href="detalles-pago.html?buy-process">Modificar Datos de Pago y Dirección de Envío</a>
+          </p>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-success btn-block">
+                <i class="fa fa-btn fa-check"></i>Procesar
+              </button>
+            </div>
+            <div class="col-sm-3" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-danger btn-block">
+                <i class="fa fa-btn fa-times"></i>Cancelar
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+</html>
