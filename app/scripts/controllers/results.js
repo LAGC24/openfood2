@@ -10,27 +10,36 @@
 angular.module('munchieTaxiApp')
   .controller('ResultsController', ['$scope', function ($scope) {
 
-    $scope.step = 0;
-    this.tab = 0;
-    this.resultType = 'Categorías';
+    $scope.categories = [
+      'Antojitos mexicanos',
+      'Taquerías',
+      'Comida italiana',
+      'Pizzerias',
+      'Vegetariana',
+      'Mariscos'
+    ];
 
-    this.selectTab = function(setTab) {
-      this.tab = setTab;
+    $scope.step = 0;
+    $scope.tab = 0;
+    $scope.resultType = 'Categorías';
+
+    $scope.selectTab = function(setTab) {
+      $scope.tab = setTab;
 
       switch (setTab) {
         case 0:
-          this.resultType = 'Categorías';
+          $scope.resultType = 'Categorías';
           $scope.step = 0;
           break;
         case 1:
-          this.resultType = 'Restaurantes';
+          $scope.resultType = 'Restaurantes';
           $scope.step = 1;
           break;
       }
     };
 
-    this.isSelected = function(checkTab){
-      return this.tab === checkTab;
+    $scope.isSelected = function(checkTab){
+      return $scope.tab === checkTab;
     };
 
     $scope.processItem = function(item) {
