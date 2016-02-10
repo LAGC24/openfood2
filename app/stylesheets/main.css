@@ -14,11 +14,29 @@
     .logo {
       margin-left: 0; } }
 
+html {
+  min-height: 100%;
+  position: relative; }
+
 body {
+  padding-bottom: 120px;
   font-family: 'Open Sans', 'Lato',sans-serif; }
 
 .fa-btn {
   margin-right: 6px; }
+
+/* Set the fixed height of the footer here */
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 60px;
+  max-height: 120px;
+  background-color: #0e1212;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  #footer p {
+    margin-bottom: 0; }
 
 aside.ads {
   border-width: 2px 0;
@@ -157,11 +175,3 @@ aside.ads {
   height: auto;
   max-height: 80px;
   margin-right: 8px; }
-
-/* Set the fixed height of the footer here */
-#footer {
-  height: 60px;
-  background-color: #0e1212;
-  margin-top: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px; }

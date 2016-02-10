@@ -43,8 +43,18 @@ $screen-md-max:              ($screen-lg-min - 1);
   }
 }
 
-// MISC
+
+// MISC: -----------------------------------------------------------------------------------------------------------
+$footer-max-height: 120px;
+
+html {
+  // For absolute footer.
+  min-height: 100%;
+  position: relative;
+}
 body {
+  // For absolute footer.
+  padding-bottom: $footer-max-height;
 
   font-family: 'Open Sans', 'Lato',sans-serif;
 }
@@ -53,6 +63,25 @@ body {
   margin-right: 6px;
 }
 
+// Footer: --------------------------------------------------------------------------------------------------------
+/* Set the fixed height of the footer here */
+#footer {
+  // Set the footer to the bottom, regardless if the content flow does not reach the bottom.
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  // Sets a variable height to avoid overflow.
+  min-height: 60px;
+  max-height: $footer-max-height;
+
+  background-color: #0e1212;
+  padding-top:20px;
+  padding-bottom:20px;
+
+  // Remove bottom margin from p.
+  p { margin-bottom: 0; }
+}
 
 // Sections: --------------------------------------------------------------------------------------------------------
 // Debug borders
@@ -292,14 +321,4 @@ section.items-results {
   max-height: 80px;
 
   margin-right: 8px;
-}
-
-// Footer --------------------------------------------------------------------------------------------------
-/* Set the fixed height of the footer here */
-#footer {
-  height: 60px;
-  background-color: #0e1212;
-  margin-top:50px;
-  padding-top:20px;
-  padding-bottom:20px;
 }
