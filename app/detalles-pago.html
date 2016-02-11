@@ -43,7 +43,6 @@
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#">Contacto</a></li>
       </ul>
 
       <!-- Right Side Of Navbar -->
@@ -51,7 +50,9 @@
         <!-- Authentication Links -->
         <!--@if (Auth::guest())-->
         <!--@else-->
-        <li class="active dropdown">
+
+        <li class="active"><a href="detalles-pago.html"><i class="active fa fa-btn fa-truck"></i> Datos de Pago y Envío</a></li>
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             Usuario <span class="caret"></span>
           </a>
@@ -60,9 +61,8 @@
             <!--<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>-->
             <li><a href="usuario.html"><i class="fa fa-btn fa-user"></i> Mi cuenta</a></li>
             <li><a href="carrito.html"><i class="fa fa-btn fa-shopping-cart"></i> Mi carrito</a></li>
-            <li class="active"><a href="detalles-pago.html"><i class="fa fa-btn fa-truck"></i> Datos de Pago y Envío</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="index.html"><i class="fa fa-btn fa-sign-out"></i> Cerrar sesión</a></li>
+            <li><a href="login.html"><i class="fa fa-btn fa-sign-out"></i> Cerrar sesión</a></li>
           </ul>
         </li>
         <!--@endif-->
@@ -301,7 +301,7 @@
                   He leído y estoy de acuerdo con el <a href="">Aviso de Privacidad</a>
                 </label>
                 <div class="col-xs-1">
-                  <input id="in-privacy-accept" type="checkbox" name="agree" value=0" class="form-control">
+                  <input id="in-privacy-accept" type="checkbox" name="agree" value="0" class="form-control">
                 </div>
               </div>
             </div><!-- Confirmation -->
@@ -329,6 +329,29 @@
     </div>
   </div>
 </div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="col-xs-7">
+      <div class="row">
+        <p class="text-muted">MunchieTaxi - La evolución de comida a domicilio <a href="http://munchietaxi.herokuapp.com/app">MunchieTaxi.herokuapp.com</a></p>
+      </div>
+    </div>
+    <div class="col-xs-5">
+      <div class="row">
+        <div class="col-xs-3">
+          <p class="text-muted">Contacto</p>
+        </div>
+        <div class="col-xs-3">
+          <p class="text-muted">Twitter</p>
+        </div>
+        <div class="col-xs-3">
+          <p class="text-muted">Facebook</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
