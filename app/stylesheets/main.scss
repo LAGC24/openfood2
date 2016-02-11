@@ -98,7 +98,16 @@ body {
 
 // Cart summary
 section.cart-summary {
-
+  @media (max-width: $screen-md-max) {
+    border: 0 solid rgba(128, 128, 128, 0.43);
+    border-bottom-width: 2px;
+  }
+}
+// Pulls the cart to the right (float to right) on LG.
+@media (min-width: $screen-lg-min) {
+  .pull-right-lg {
+    float: right;
+  }
 }
 
 // Ads
@@ -107,7 +116,8 @@ aside.ads {
   border-width: 2px 0;
   border-style: solid;
   border-color: rgba(128, 128, 128, 0.43);
-  padding: 8px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
 
   transition: height 1s;
   height: 24em;

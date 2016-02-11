@@ -38,11 +38,21 @@ body {
   #footer p {
     margin-bottom: 0; }
 
+@media (max-width: 1199px) {
+  section.cart-summary {
+    border: 0 solid rgba(128, 128, 128, 0.43);
+    border-bottom-width: 2px; } }
+
+@media (min-width: 1200px) {
+  .pull-right-lg {
+    float: right; } }
+
 aside.ads {
   border-width: 2px 0;
   border-style: solid;
   border-color: rgba(128, 128, 128, 0.43);
-  padding: 8px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
   transition: height 1s;
   height: 24em; }
   aside.ads.compressed {
