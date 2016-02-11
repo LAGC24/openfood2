@@ -79,6 +79,9 @@ angular.module('munchieTaxiApp')
     $scope.tabModel = tabModel;
 
 
+    // TODO just for demo, should obtain from selections.
+    $scope.menuImgSrc = 'images/restaurants/logos/PizzaHut_logo-219x286.png';
+
     var currentTabIndex = 0;
     $scope.resultType = 'Categorías';
 
