@@ -15,12 +15,17 @@ angular.module('munchieTaxiApp')
       { name: 'Taquerías', iconClass: 'flaticon-mexican8' },
       { name: 'Carne asada', iconClass: 'flaticon-steak' },
       { name: 'Comida italiana', iconClass: 'flaticon-spaghetti1' },
-      { name: 'Pizzerias', iconClass: 'flaticon-pizza3' },
+      { name: 'Pizzerías', iconClass: 'flaticon-pizza3' },
       { name: 'Comida rápida', iconClass: 'flaticon-fast-food' },
       { name: 'Vegetariana', iconClass: 'flaticon-salad' },
       { name: 'Mariscos', iconClass: 'flaticon-fishes9' },
       { name: 'Oriental', iconClass: 'flaticon-noodles4' },
       { name: 'Sushi', iconClass: 'flaticon-sushi15' }
+    ];
+
+    $scope.restaurants = [
+      { nameId: 'Pizza Hut', categoryNameId: 'Pizzerías', imgSrc: 'images/restaurants/logos/PizzaHut_logo-219x286.png' },
+      { nameId: 'Domino\'s Pizza', categoryNameId: 'Pizzerías', imgSrc: 'images/restaurants/logos/10.png' }
     ];
 
     var currentOrderBy = 'alphabet';
@@ -52,43 +57,101 @@ angular.module('munchieTaxiApp')
     }
 
 
-    $scope.step = 0;
-    $scope.tab = 0;
+
+    var paths = {
+      'cat': { urlName: 'categorias', viewName: 'Categorías' },
+      'rst': { urlName: 'restaurantes', viewName: 'Restaurantes' },
+      'mnu': { urlName: 'menu', viewName: 'Menú' }
+    };
+
+    var tabModel = [
+      { // Category Tab
+        rootPathLevelId: 'cat', // Dictates the root-level's path name
+        step: 'cat',            // Dictates path level. (should deprecate, use selections instead as path)
+        selections: []          // Example: { type: 'cat', nameId: 'Pizzerías' }, { type: 'rst', nameId: 'Pizza Hut' }
+      },
+      { // Restaurant Tab
+        rootPathLevelId: 'rst',
+        step: 'rst',
+        selections: []
+      }
+    ];
+    $scope.tabModel = tabModel;
+
+
+    var currentTabIndex = 0;
     $scope.resultType = 'Categorías';
 
-    $scope.selectTab = function(setTab) {
-      $scope.tab = setTab;
 
-      switch (setTab) {
-        case 0:
-          $scope.resultType = 'Categorías';
-          $scope.step = 0;
-          break;
-        case 1:
-          $scope.resultType = 'Restaurantes';
-          $scope.step = 1;
-          break;
-      }
+
+    $scope.selectTab = function(setTabIndex) {
+      currentTabIndex = setTabIndex;
+      // Here would call event suscribed directives.
+    };
+    $scope.isTabSelected = function(checkTab){
+      return currentTabIndex === checkTab;
     };
 
-    $scope.isSelected = function(checkTab){
-      return $scope.tab === checkTab;
+    $scope.processSelection = function(selection, type) {
+      var currentTab = tabModel[currentTabIndex];
+      if (type === 'category') {
+        currentTab.selections.push({ type: 'cat', nameId: selection.name });
+        currentTab.step = 'rst';
+      }
+      else if (type === 'restaurant') {
+        currentTab.selections.push({ type: 'rst', nameId: selection.nameId });
+        currentTab.step = 'mnu';
+      }
+
+      console.log(selection, type);
     };
 
-    $scope.processItem = function(item) {
-      if (item == 2) {
-        $scope.step = 2;
-      }
-      else {
-        $scope.step = 0;
-      }
-    };
-
+    /**
+     * Check if is the current tab on the specified step.
+     * @param stepToCheck
+     * @returns {boolean}
+       */
     $scope.isOnStep = function(stepToCheck) {
-      if($scope.step == stepToCheck)
-        return true;
-      else
-        return false;
+      return stepToCheck === tabModel[currentTabIndex].step;
+    };
+
+
+    $scope.getRestaurants = function() {
+      // TODO filtering (current implementation just for demo)
+      return $scope.restaurants;
+    };
+
+
+    // Navigation path (should be another module)
+    var pathHierarchy = [];
+    $scope.getCurrentTabPathHierarchy = function() {
+      // Clear the array.
+      //pathHierarchy.length = 0;
+      while(pathHierarchy.length > 0) {
+        pathHierarchy.pop();
+      }
+
+      const currentTab = tabModel[currentTabIndex];
+
+      const rootPath = paths[currentTab.rootPathLevelId];
+
+      pathHierarchy.push({ pathIdType: currentTab.rootPathLevelId, url: rootPath.urlName, text: rootPath.viewName });  // Each one is a 'hierarchy Path'
+
+      // Repeat for each selection/level
+      angular.forEach(currentTab.selections, function(selection, index) {
+        // Todo Should change url to use a better urlName (i.e. without accents)
+        var hierarchyPath = { pathIdType: selection.type, url: selection.nameId, nameId: selection.nameId };
+
+        this.push(hierarchyPath);
+      }, pathHierarchy);
+
+      return pathHierarchy;
+
+      //'<li ng-repeat="hierarchyPath in getCurrentTabPathHierarchy()"><a ng-href="{{hierarchyPath.url}}" ng-click="changePath(hierarchyPath.pathIdType, hierarchyPath.nameId)">{{hierarchyPath.nameId}}</a></li>'
+      //
+      //'<li><a nhref="{{resultsCtrl.resultType}}/{{searchTerm}}" ng-click="processItem(0)">{{resultsCtrl.resultType}} ({{searchTerm}})</a></li>'
+      //'<li ng-show="resultsCtrl.isTabSelected(0)"><a href="" ng-click="processItem(1)">Restaurantes</a></li>'
+      //'<li class="-active"><a href="" ng-click="processItem(2)">restaurant-menu</a></li>'
     };
 
   }]);
