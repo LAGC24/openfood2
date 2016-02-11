@@ -16,6 +16,9 @@
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="stylesheets/bootstrap-custom.css" rel="stylesheet">
     <link href="stylesheets/main.css" rel="stylesheet">
+    <!-- Pointy Slider -->
+    <link rel="stylesheet" href="scripts/pointy-slider/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="scripts/pointy-slider/css/style.css"> <!-- Resource style -->
 </head>
 
 <body id="app-layout" ng-app="munchieTaxiApp">
@@ -134,12 +137,72 @@
 
 
   <!-- Ad -->
-  <aside class="ads  col-lg-offset-2 col-lg-8" ng-class="{compressed: isAddCompressed }">
-    <h1 class="h3">Ads</h1>
+  <!-- <aside class="ads  col-lg-offset-2 col-lg-8" ng-class="{compressed: isAddCompressed }">
+    <h1 class="h3">Promociones</h1>
     <a href="" ng-click="isAddCompressed = false">
       <img src="images/ads/PremiumSinglesPizzaHut.jpg" class="img-responsive center-block">
     </a>
-  </aside><!-- /Ad -->
+  </aside> --><!-- /Ad -->
+
+<!-- Slider Promociones -->
+  <section class="ads  col-lg-offset-2 col-lg-8" ng-class="{compressed: isAddCompressed }">
+    <div class="cd-slider-wrapper">
+      <ul class="cd-slider">
+        <li class="is-visible">
+          <div class="cd-half-block image"></div>
+
+          <div class="cd-half-block content">
+            <div>
+              <h2>Promo 1</h2>
+              <p>
+                2 X 1 En todas las pizzas!
+              </p>
+            </div>
+          </div>
+        </li> <!-- .cd-half-block.content -->
+
+        <li>
+          <div class="cd-half-block image"></div>
+
+          <div class="cd-half-block content light-bg">
+            <div>
+              <h2>Promo 2</h2>
+              <p>
+                Llevate el reresco gratis en la compra de 2 hamburguesas.
+              </p>
+            </div>
+          </div> <!-- .cd-half-block.content -->
+        </li>
+
+        <li>
+          <div class="cd-half-block image"></div>
+
+          <div class="cd-half-block content">
+            <div>
+              <h2>Promo 3</h2>
+              <p>
+                50% de descuento con este código! <em>munchiepromo</em>
+              </p>
+            </div>
+          </div> <!-- .cd-half-block.content -->
+        </li>
+
+        <li>
+          <div class="cd-half-block image"></div>
+
+          <div class="cd-half-block content">
+            <div>
+              <h2>Promo 4</h2>
+              <p>
+                Compra un combo y paga solo la mitad del segundo!
+              </p>
+            </div>
+          </div> <!-- .cd-half-block.content -->
+        </li>
+      </ul> <!-- .cd-slider -->
+    </div> <!-- .cd-slider-wrapper -->
+  </section>
+  <!-- End Slider Promociones -->
 
 
   <!-- Results -->
@@ -326,20 +389,20 @@
 
 <footer id="footer">
   <div class="container">
-    <div class="col-xs-7">
+    <div class="col-xs-12 col-md-7">
       <div class="row">
         <p class="text-muted">MunchieTaxi - La evolución de comida a domicilio <a href="http://munchietaxi.herokuapp.com/app">MunchieTaxi.herokuapp.com</a></p>
       </div>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-12 col-md-5">
       <div class="row">
-        <div class="col-xs-3">
+        <div class="col-xs-4 col-md-3">
           <p class="text-muted">Contacto</p>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4 col-md-3">
           <p class="text-muted">Twitter</p>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4 col-md-3">
           <p class="text-muted">Facebook</p>
         </div>
       </div>
@@ -359,6 +422,11 @@
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/search.js"></script>
 <script src="scripts/controllers/results.js"></script>
+<!-- Pointy Slider JS -->
+<script src="scripts/pointy-slider/js/modernizr.js"></script> <!-- Modernizr -->
+<script src="scripts/pointy-slider/js/jquery-2.1.4.js"></script>
+<script src="scripts/pointy-slider/js/jquery.mobile.custom.min.js"></script>
+<script src="scripts/pointy-slider/js/main.js"></script> <!-- Resource jQuery -->
 
 </body>
 </html>
