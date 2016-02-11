@@ -18,70 +18,47 @@
   <link href="stylesheets/main.css" rel="stylesheet">
 
   <style>
-    .js-qty, .ajaxcart__qty {
-      position: relative;
-      /*margin-bottom: 1em;*/
-      max-width: 70px;
-      /*min-width: 75px;*/
-      width: 75px;
-      overflow: visible;
-      backface-visibility: hidden;
-    }
-    .js-qty__adjust, .ajaxcart__qty-adjust {
-      cursor: pointer;
-      position: absolute;
-      display: block;
-      top: -1px;
-      bottom: -1px;
-      border: 0 none;
-      background: none;
-      text-align: center;
-      overflow: hidden;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-    }
-    .js-qty__adjust--minus, .ajaxcart__qty--minus {
-      left: 0;
-    }
-    .js-qty__adjust--plus, .ajaxcart__qty--plus {
-      right: 0;
-    }
-    .js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
-      /*background: -webkit-linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
-      /*background: linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
-      background-color: #ebebeb;
-      font-weight: bold;
-    }
-    .js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
-      display: block;
-      text-align: center;
-      width: 100%;
-      padding: 5px 25px;
-      margin: 0;
-      border-color: #8D8F93;
-    }
+   .table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
 
+    table#cart tbody td .form-control{
+    width:20%;
+    display: inline !important;
+  }
+  .actions .btn{
+    width:36%;
+    margin:1.5em 0;
+  }
+  
+  .actions .btn-info{
+    float:left;
+  }
+  .actions .btn-danger{
+    float:right;
+  }
+  
+  table#cart thead { display: none; }
+  table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+  table#cart tbody tr td:first-child { background: #333; color: #fff; }
+  table#cart tbody td:before {
+    content: attr(data-th); font-weight: bold;
+    display: inline-block; width: 8rem;
+  }
+  
+  
+  
+  table#cart tfoot td{display:block; }
+  table#cart tfoot td .btn{display:block;}
+  
+}
 
-    .bordered {
-      border: 1px solid gainsboro;
-    }
-
-    .js-qty {
-      /*margin-top: 10%;*/
-      margin-left: 8px;
-    }
-
-    .img-responsive {
-      display: block;
-      max-width: 120px;
-      height: auto;
-      max-height: 80px;
-
-      margin-right: 8px;
-    }
+/*@media (min-width: 400px) and (max-width: 600px){
+  body {
+    background: black;
+  }
+}*/
   </style>
 
 </head>
@@ -139,140 +116,143 @@
   </div>
 </nav>
 
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-heading">Mi carrito</div>
-
-        <form class="panel-body" role="form" method="POST" action="#">
-
-          <!-- One restaurant section-->
-          <section class="">
-            <h1 class="h3">Pizzas Hat</h1>
-            <ul class="media-list">
-              <li class="bordered">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <img class="pull-left img-responsive" src="images/restaurants/generic/peperonni.jpg" alt="...">
-                    <div class="pull-right text-center">
-                      <div class="js-qty">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
-                        </button>
-                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
-                               pattern="[0-9]*" name="quantity" id="">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
-                        </button>
+  <div class="panel panel-default">
+    <div class="panel-heading">Mi carrito</div>
+      <form class="panel-body" role="form" method="POST" action="#">
+        <div class="shopping">
+          <table id="cart" class="table table-hover table-condensed table-responsive">
+                <thead>
+                  <tr>
+                    <th style="width:50%">Producto</th>
+                    <th style="width:10%">Precio</th>
+                    <th style="width:8%">Cantidad</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-th="Producto">
+                      <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="images/restaurants/generic/peperonni.jpg" style="width: 72px; height: 72px;" alt="..." class=""/></div>
+                        <div class="col-sm-10">
+                          <h4 class="media-heading"> Dominos Pizza - Pizza Pepperoni</h4>
+                          <h5 class="media-heading"> Pizza mediana con pepperoni</h5> 
+                        </div>
                       </div>
-                      <span><strong>$100.00</strong></span>
-                    </div>
-                    <h4 class="">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
-                  </div>
-                </div>
-              </li>
-              <li class="bordered">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza%20margarita.jpg" alt="...">
-                    <div class="pull-right text-center">
-                      <div class="js-qty">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
-                        </button>
-                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
-                               pattern="[0-9]*" name="quantity" id="">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
-                        </button>
+                    </td>
+                    <td data-th="Precio">$100</td>
+                    <td data-th="Cantidad">
+                      <input type="number" class="form-control text-center" value="1">
+                       <!-- <div class="js-qty">
+                              <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
+                              </button>
+                              <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
+                                     pattern="[0-9]*" name="quantity" id="">
+                              <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
+                              </button>
+                            </div> -->
+                    </td>
+                    <td data-th="Subtotal" class="text-center">100</td>
+                    <td class="actions" data-th="">
+                      <!-- <button class="btn btn-info btn-sm"><i class="refresh"></i></button> -->
+                      <button class="btn btn-danger btn-sm"><i class="trash">Remover</i></button>                
+                    </td>
+                  </tr>
+                   <tr>
+                    <td data-th="Producto">
+                      <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="images/restaurants/generic/pizza%20margarita.jpg" style="width: 72px; height: 72px;" alt="..." class=""/></div>
+                        <div class="col-sm-10">
+                          <h4 class="media-heading"> Dominos Pizza - Pizza Margarita</h4>
+                          <h5 class="media-heading"> Pizza mediana condimentada con tomate</h5>
+                        </div>
                       </div>
-                      <span><strong>$100.00</strong></span>
-                    </div>
-                    <h4 class="">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!-- One restaurant section-->
-          <section class="">
-            <h1 class="h3">Pizzas Dominal</h1>
-            <ul class="media-list">
-              <li class="bordered">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza-hawaina-02.png" alt="...">
-                    <div class="pull-right text-center">
-                      <div class="js-qty">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
-                        </button>
-                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
-                               pattern="[0-9]*" name="quantity" id="">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
-                        </button>
+                    </td>
+                    <td data-th="Precio">$100</td>
+                    <td data-th="Cantidad">
+                      <input type="number" class="form-control text-center" value="1">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">100</td>
+                    <td class="actions" data-th="">
+                      <!-- <button class="btn btn-info btn-sm"><i class="refresh"></i></button> -->
+                      <button class="btn btn-danger btn-sm"><i class="trash">Remover</i></button>                
+                    </td>
+                  </tr>
+                   <tr>
+                    <td data-th="Producto">
+                      <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="images/restaurants/generic/pizza-hawaina-02.png" style="width: 72px; height: 72px;" alt="..." class=""/></div>
+                        <div class="col-sm-10">
+                          <h4 class="media-heading"> Pizza Hut - Pizza Hawaiana</h4>
+                          <h5 class="media-heading"> Pizza mediana con jamón y piña</h5>
+                        </div>
                       </div>
-                      <span><strong>$150.00</strong></span>
-                    </div>
-                    <h4 class="">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
-                  </div>
-                </div>
-              </li>
-              <li class="bordered">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <img class="pull-left img-responsive" src="images/restaurants/generic/pizza%20romana.jpg" alt="...">
-                    <div class="pull-right text-center">
-                      <div class="js-qty">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="" data-qty="0">−
-                        </button>
-                        <input type="text" class="js-qty__num" value="0" min="0" data-id="" aria-label="quantity"
-                               pattern="[0-9]*" name="quantity" id="">
-                        <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="" data-qty="11">+
-                        </button>
+                    </td>
+                    <td data-th="Precio">$150</td>
+                    <td data-th="Cantidad">
+                      <input type="number" class="form-control text-center" value="1">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">150</td>
+                    <td class="actions" data-th="">
+                      <!-- <button class="btn btn-info btn-sm"><i class="refresh"></i></button> -->
+                      <button class="btn btn-danger btn-sm"><i class="trash">Remover</i></button>                
+                    </td>
+                  </tr>
+                   <tr>
+                    <td data-th="Producto">
+                      <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="images/restaurants/generic/pizza%20romana.jpg" style="width: 72px; height: 72px;" alt="..." class=""/></div>
+                        <div class="col-sm-10">
+                          <h4 class="media-heading">Pizza Hut - Pizza Romana</h4>
+                          <h5 class="media-heading"> Pizza mediana con jamón, champiñones, aceitunas negras</h5>
+                        </div>
                       </div>
-                      <span><strong>$150.00</strong></span>
-                    </div>
-                    <h4 class="">Media heading</h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.
+                    </td>
+                    <td data-th="Precio">$150</td>
+                    <td data-th="Cantidad">
+                      <input type="number" class="form-control text-center" value="1">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">150</td>
+                    <td class="actions" data-th="">
+                      <!-- <button class="btn btn-info btn-sm"><i class="refresh"></i></button> -->
+                      <button class="btn btn-danger btn-sm"><i class="trash">Remover</i></button>                
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <div>
+                      <tr>                      
+                        <td class="h5">Subtotal <span class="text-right h5"><strong>$500 MXN</strong></span></td>    
+                      </tr>
+                      <tr>
+                          <td class="h5">Gasto de envio</td>
+                          <td class="text-right h5"><strong>$80 MXN</strong></td>
+                      </tr>
+                      <tr>
+                          <td><h3>Total</h3></td>
+                          <td class="text-right"><h3><strong>$580 MXN</strong></h3></td>
+                      </tr>
+                      <tr>
+                        <td>
+                        <a class="btn btn-default" href="index.html">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Seguir comprando
+                        </a></td>
+                        <td>
+                        <a class="btn btn-success" href="detalles-pago.html">
+                            Comprar <span class="glyphicon glyphicon-play"></span>
+                        </a></td>
+                      </tr>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--Total-->
-          <section class="text-right">
-            <div class="h3">Sub Total:<strong>$500.00</strong></div>
-            <div class="h4">+ Envío:<strong>$80.00</strong></div>
-            <div class="h3"> Total: <strong>$580.00</strong></div>
-          </section>
-
-          <p>
-            <a href="detalles-pago.html?buy-process">Modificar Datos de Pago y Dirección de Envío</a>
-          </p>
-
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-3" style="margin-top: 10px;">
-              <button type="submit" class="btn btn-success btn-block">
-                <i class="fa fa-btn fa-check"></i>Procesar
-              </button>
-            </div>
-            <div class="col-sm-3" style="margin-top: 10px;">
-              <button type="submit" class="btn btn-danger btn-block">
-                <i class="fa fa-btn fa-times"></i>Cancelar
-              </button>
-            </div>
-          </div>
-
-        </form>
-
-
+                </tfoot>          
+          </table>
         </div>
-      </div>
-    </div>
-  </div>
+      </form>  
+    </div>  
 </div>
+
 
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
