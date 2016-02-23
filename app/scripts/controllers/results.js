@@ -10,13 +10,35 @@
 angular.module('munchieTaxiApp')
   .controller('ResultsController', ['$scope', '$http', function ($scope, $http) {
 
+    $scope.categories = [];
+    $scope.restaurants = [];
+
     // TODO: return something (i.e. an error card or "reload") in case of an error.
-    $http.get('static/categories.json').success(function(data) {
-      $scope.categories = data;
-    });
-    $http.get('static/restaurants.json').success(function(data) {
-      $scope.restaurants = data;
-    });
+    // TODO: use query params to define what to get (order, limit, etc?)
+    $http.get('static/categories.json').then(
+      function successCallback(response) {
+        $scope.categories = response.data;
+      },
+      function errorCallback(response) {
+        $scope.categories = [{
+          "name": "Antojitos mexicanos",
+          "iconClass": "flaticon-mexican8"
+        }];
+      }
+    );
+
+    $http.get('static/restaurants.json').then(
+      function successCallback(response) {
+        $scope.restaurants = response.data;
+      },
+      function errorCallback(response) {
+        $scope.restaurants = [{
+          "nameId": "Pizza Hut",
+          "categoryNameId": "Pizzerías",
+          "imgSrc": "images/restaurants/logos/PizzaHut_logo-219x286.png"
+        }];
+      }
+    );
 
 
 
