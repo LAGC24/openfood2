@@ -8,25 +8,17 @@
  * Controller of the munchieTaxiApp
  */
 angular.module('munchieTaxiApp')
-  .controller('ResultsController', ['$scope', function ($scope) {
+  .controller('ResultsController', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.categories = [
-      //{ name: 'Antojitos mexicanos', iconClass: 'flaticon-mexican8' },
-      { name: 'Taquerías', iconClass: 'flaticon-mexican8' },
-      { name: 'Carne asada', iconClass: 'flaticon-steak' },
-      { name: 'Comida italiana', iconClass: 'flaticon-spaghetti1' },
-      { name: 'Pizzerías', iconClass: 'flaticon-pizza3' },
-      { name: 'Comida rápida', iconClass: 'flaticon-fast-food' },
-      { name: 'Vegetariana', iconClass: 'flaticon-salad' },
-      { name: 'Mariscos', iconClass: 'flaticon-fishes9' },
-      { name: 'Oriental', iconClass: 'flaticon-noodles4' },
-      { name: 'Sushi', iconClass: 'flaticon-sushi15' }
-    ];
+    // TODO: return something (i.e. an error card or "reload") in case of an error.
+    $http.get('static/categories.json').success(function(data) {
+      $scope.categories = data;
+    });
+    $http.get('static/restaurants.json').success(function(data) {
+      $scope.restaurants = data;
+    });
 
-    $scope.restaurants = [
-      { nameId: 'Pizza Hut', categoryNameId: 'Pizzerías', imgSrc: 'images/restaurants/logos/PizzaHut_logo-219x286.png' },
-      { nameId: 'Domino\'s Pizza', categoryNameId: 'Pizzerías', imgSrc: 'images/restaurants/logos/10.png' }
-    ];
+
 
     var currentOrderBy = 'alphabet';
 

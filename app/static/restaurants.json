@@ -1,0 +1,12 @@
+[
+  {
+    "nameId": "Pizza Hut",
+    "categoryNameId": "Pizzerías",
+    "imgSrc": "images/restaurants/logos/PizzaHut_logo-219x286.png"
+  },
+  {
+    "nameId": "Domino's Pizza",
+    "categoryNameId": "Pizzerías",
+    "imgSrc": "images/restaurants/logos/10.png"
+  }
+]

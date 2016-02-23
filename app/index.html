@@ -270,20 +270,23 @@
         <div class="col-xs-12 col-md-10 col-md-offset-1">
           <div class="tab-content">
 
+            <!-- Categories -->
             <div id="content-categories" class="" role="tabpanel" ng-show="isOnStep('cat')">
               <article class="cat-item" ng-repeat="category in categories" ng-click="processSelection(category, 'category')">
                 <a href=""><span ng-class="category.iconClass"></span><h1>{{category.name}}</h1></a>
               </article>
-            </div>
+            </div><!-- /Categories -->
 
+            <!-- Restaurants -->
             <div id="content-restaurants" class="" role="tabpanel" ng-show="isOnStep('rst')">
               <article class="cat-item" ng-repeat="restaurant in getRestaurants()" ng-click="processSelection(restaurant, 'restaurant')">
                 <a href="">
                   <img ng-src="{{restaurant.imgSrc}}" class="center-block" style="height: 80%; width: 80%;">
                   <h1>{{restaurant.nameId}}</h1></a>
               </article>
-            </div>
+            </div><!-- /Restaurants -->
 
+            <!-- Menu/Restaurant content -->
             <div id="content-menu" class="" role="tabpanel" ng-show="isOnStep('mnu')">
               <div class="cat-item" style="padding-bottom: 0;">
                 <img ng-src="{{menuImgSrc}}" class="center-block" style="height: 80%; width: 80%;">
@@ -379,7 +382,7 @@
                   </div>
                 </li>
               </ul>
-            </div>
+            </div><!-- /Menu/Restaurant content -->
 
           </div>
         </div>
