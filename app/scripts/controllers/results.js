@@ -15,7 +15,7 @@ angular.module('munchieTaxiApp')
 
     // TODO: return something (i.e. an error card or "reload") in case of an error.
     // TODO: use query params to define what to get (order, limit, etc?)
-    $http.get('static/categories.json').then(
+    $http.get('/static/categories.json').then(
       function successCallback(response) {
         $scope.categories = response.data;
       },
@@ -27,7 +27,7 @@ angular.module('munchieTaxiApp')
       }
     );
 
-    $http.get('static/restaurants.json').then(
+    $http.get('/static/restaurants.json').then(
       function successCallback(response) {
         $scope.restaurants = response.data;
       },
@@ -94,7 +94,7 @@ angular.module('munchieTaxiApp')
 
 
     // TODO just for demo, should obtain from selections.
-    $scope.menuImgSrc = 'images/restaurants/logos/PizzaHut_logo-219x286.png';
+    $scope.menuImgSrc = '/images/restaurants/logos/PizzaHut_logo-219x286.png';
 
     var currentTabIndex = 0;
     $scope.resultType = 'Categorías';
