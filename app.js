@@ -6,11 +6,11 @@ var express = require('express');
 var app = express();
 
 // App settings.
-app.set('viewsDir', __dirname + '/app'); // Later, move all and change to /views
+app.set('viewsDir', __dirname + '/public'); // Later, move all and change to /views
 
 
 
-app.use(express.static('app'));
+app.use(express.static('public'));
 
 
 // Routing

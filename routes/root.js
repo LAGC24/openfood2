@@ -3,6 +3,6 @@
  */
 
 exports.root = function(req, res) {
-  //resp.sendFile(__dirname + '/app/index.html');
+  //resp.sendFile(__dirname + '/public/index.html');
   res.sendFile(req.app.get('viewsDir') + '/index.html');
 };
