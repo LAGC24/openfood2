@@ -1,11 +1,31 @@
 # Created by .ignore support plugin (hsz.mobi)
 node_modules/
 
-# IntelliJ project files
-.idea
+# IntelliJ project directories/files
+.idea/
 *.iml
-out
-gen
+out/
+gen/
 
 # Webstorm
 *.xml
+
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
