@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var bodyParser = require('body-parser').urlencoded();
+var bodyParser = require('body-parser').urlencoded({ extended: false });
 
 
 // Refers, for example, to: '/user/'.
