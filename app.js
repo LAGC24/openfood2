@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 // Routing
 var routeRoot = require('./routes/root');
-var routeResult = require('./routes/results');
+//var routeResult = require('./routes/results');
 
 var routeLogin = require('./routes/login');
 var routeRegister = require('./routes/register');
@@ -33,8 +33,9 @@ app.get('/', routeRoot.root);
 app.get('/results', routeRoot.root);
 
 // Root's Results.
-app.get('/results/:category', routeResult.viewCategory);
-app.get('/results/:category/:restaurant', routeResult.viewRestaurant);
+app.use('/results', require('./routes/results'));
+//app.get('/results/:category', routeResult.viewCategory);
+//app.get('/results/:category/:restaurant', routeResult.viewRestaurant);
 // Idea app.get('/results/:category/:restaurant/details', routeResult.viewRestaurantDetails);
 
 // Todo: rest of routes... (dont forget to change the relative paths to start/be relative to root. E.g. index.html to /, or usuario.html to /user)
