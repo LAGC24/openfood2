@@ -17,7 +17,18 @@ app.use(express.static('app'));
 var routeRoot = require('./routes/root');
 var routeResult = require('./routes/results');
 
+var routeLogin = require('./routes/login');
+var routeRegister = require('./routes/register');
+var routeUser = require('./routes/user');
+var routeCart = require('./routes/cart');
+
 // Root.
+app.get('/carrito', routeCart.root);
+app.get('/login', routeLogin.root);
+app.get('/usuario', routeUser.root);
+app.get('/registro', routeRegister.root);
+
+
 app.get('/', routeRoot.root);
 app.get('/results', routeRoot.root);
 
