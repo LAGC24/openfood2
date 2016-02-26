@@ -15,17 +15,17 @@ app.use(express.static('public'));
 
 // Routing
 var routeRoot = require('./routes/root');
-//var routeResult = require('./routes/results');
+var resultRouter = require('./routes/results');
 
 var routeLogin = require('./routes/login');
 var routeRegister = require('./routes/register');
-var routeUser = require('./routes/user');
+var userRouter = require('./routes/user');
 var routeCart = require('./routes/cart');
 
 // Root.
 app.get('/carrito', routeCart.root);
 app.get('/login', routeLogin.root);
-app.get('/usuario', routeUser.root);
+app.use('/usuario', userRouter);
 app.get('/registro', routeRegister.root);
 
 
@@ -33,7 +33,7 @@ app.get('/', routeRoot.root);
 app.get('/results', routeRoot.root);
 
 // Root's Results.
-app.use('/results', require('./routes/results'));
+app.use('/results', resultRouter);
 //app.get('/results/:category', routeResult.viewCategory);
 //app.get('/results/:category/:restaurant', routeResult.viewRestaurant);
 // Idea app.get('/results/:category/:restaurant/details', routeResult.viewRestaurantDetails);
