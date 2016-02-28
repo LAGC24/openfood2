@@ -4,6 +4,7 @@
 
 var express = require('express');
 var favicon = require('serve-favicon');
+var morgan = require('morgan');         // Logger.
 var app = express();
 
 
@@ -12,11 +13,11 @@ var mongoUtil = require('./utils/mongoUtil');
 mongoUtil.connect();
 
 // App settings.
-app.set('viewsDir', __dirname + '/views'); // Later, move all and change to /views
+app.set('viewsDir', __dirname + '/views');
 app.set('staticDir', __dirname + '/static');
 
-
 // Set middleware.
+app.use(morgan('combined', { skip: function (req, res) { return res.statusCode < 400 } })); // Log errors only.
 app.use(express.static('public'));
 app.use(favicon(__dirname + '/public/favicon.ico', {maxAge: 60 * 60 * 24 * 1000})); // maxAge 1 day
 // Idea, middleware to remove .html (and log them)
