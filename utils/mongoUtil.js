@@ -12,7 +12,8 @@ module.exports = {
     client.connect('mongodb://localhost:27000/munchie', function(err, db) {
       if(err) {
         console.log("Error connecting to Mongo - check mongod connection");
-        process.exit(1);
+        //Todo handle when there is no connection to DB.
+        // process.exit(1);
       }
 
       _db = db;
