@@ -11,6 +11,7 @@ mongoUtil.connect();
 
 // App settings.
 app.set('viewsDir', __dirname + '/public'); // Later, move all and change to /views
+app.set('staticDir', __dirname + '/static');
 
 
 // Set middleware.
@@ -27,7 +28,7 @@ var routeCart       = require('./routes/cart');
 
 // Root.
 app.get('/', routeRoot.root);
-app.get('/results', routeRoot.root);
+//app.get('/results', routeRoot.root);
 
 // Root's Results.
 app.use('/results', resultRouter);

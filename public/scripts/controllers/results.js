@@ -15,7 +15,7 @@ angular.module('munchieTaxiApp')
 
     // TODO: return something (i.e. an error card or "reload") in case of an error.
     // TODO: use query params to define what to get (order, limit, etc?)
-    $http.get('/static/categories.json').then(
+    $http.get('/results').then(
       function successCallback(response) {
         $scope.categories = response.data;
       },
@@ -27,18 +27,20 @@ angular.module('munchieTaxiApp')
       }
     );
 
-    $http.get('/static/restaurants.json').then(
-      function successCallback(response) {
-        $scope.restaurants = response.data;
-      },
-      function errorCallback(response) {
-        $scope.restaurants = [{
-          "nameId": "Pizza Hut",
-          "categoryNameId": "Pizzerías",
-          "imgSrc": "images/restaurants/logos/PizzaHut_logo-219x286.png"
-        }];
-      }
-    );
+    var loadRestaurants = function(cat) {
+      $http.get('/results/category/' + cat).then(
+        function successCallback(response) {
+          $scope.restaurants = response.data;
+        },
+        function errorCallback(response) {
+          $scope.restaurants = [{
+            "nameId": "Pizza Hut",
+            "categoryNameId": "Pizzerías",
+            "imgSrc": "images/restaurants/logos/PizzaHut_logo-219x286.png"
+          }];
+        }
+      );
+    };
 
 
 
@@ -102,6 +104,10 @@ angular.module('munchieTaxiApp')
 
 
     $scope.selectTab = function(setTabIndex) {
+      if (setTabIndex == 1) {
+        loadRestaurants('all');
+      }
+
       currentTabIndex = setTabIndex;
       // Here would call event suscribed directives.
     };
@@ -112,6 +118,7 @@ angular.module('munchieTaxiApp')
     $scope.processSelection = function(selection, type) {
       var currentTab = tabModel[currentTabIndex];
       if (type === 'category') {
+        loadRestaurants(selection.name);
         currentTab.selections.push({ type: 'cat', nameId: selection.name });
         currentTab.step = 'rst';
       }
