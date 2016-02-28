@@ -9,7 +9,10 @@ var _db;
 
 module.exports = {
   connect: function() {
-    client.connect('mongodb://localhost:27000/munchie', function(err, db) {
+    // Check if running on Heroku (Mongo uri env. var. is set), otherwise connect locally.
+    var mongoUri = process.env.mongolab_uri || 'mongodb://localhost:27000/munchie';
+
+    client.connect(mongoUri, function(err, db) {
       if(err) {
         console.log("Error connecting to Mongo - check mongod connection");
         //Todo handle when there is no connection to DB.
