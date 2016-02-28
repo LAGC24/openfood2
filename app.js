@@ -13,6 +13,7 @@ var mongoUtil = require('./utils/mongoUtil');
 mongoUtil.connect();
 
 // App settings.
+app.set('view engine', 'ejs');
 app.set('viewsDir', __dirname + '/views');
 app.set('staticDir', __dirname + '/static');
 
