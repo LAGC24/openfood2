@@ -5,6 +5,10 @@
 var express = require('express');
 var app = express();
 
+
+var mongoUtil = require('./utils/mongoUtil');
+mongoUtil.connect();
+
 // App settings.
 app.set('viewsDir', __dirname + '/public'); // Later, move all and change to /views
 
