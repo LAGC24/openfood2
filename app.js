@@ -3,7 +3,9 @@
  */
 
 var express = require('express');
+var favicon = require('serve-favicon');
 var app = express();
+
 
 // Set DB.
 var mongoUtil = require('./utils/mongoUtil');
@@ -16,6 +18,7 @@ app.set('staticDir', __dirname + '/static');
 
 // Set middleware.
 app.use(express.static('public'));
+app.use(favicon(__dirname + '/public/favicon.ico', {maxAge: 60 * 60 * 24 * 1000})); // maxAge 1 day
 // Idea, middleware to remove .html (and log them)
 
 

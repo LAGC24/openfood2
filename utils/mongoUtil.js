@@ -18,9 +18,10 @@ module.exports = {
         //Todo handle when there is no connection to DB.
         // process.exit(1);
       }
-
-      _db = db;
-      console.log("Connected to Mongo");
+      else {
+        _db = db;
+        console.log("Connected to Mongo");
+      }
     });
   },
 
