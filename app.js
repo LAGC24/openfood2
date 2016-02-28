@@ -10,12 +10,13 @@ var mongoUtil = require('./utils/mongoUtil');
 mongoUtil.connect();
 
 // App settings.
-app.set('viewsDir', __dirname + '/public'); // Later, move all and change to /views
+app.set('viewsDir', __dirname + '/views'); // Later, move all and change to /views
 app.set('staticDir', __dirname + '/static');
 
 
 // Set middleware.
 app.use(express.static('public'));
+// Idea, middleware to remove .html (and log them)
 
 
 // Routing
@@ -35,10 +36,19 @@ app.use('/results', resultRouter);
 
 // Todo: rest of routes... (dont forget to change the relative paths to start/be relative to root. E.g. index.html to /, or usuario.html to /user)
 // Rest of routes.
-app.get('/carrito', routeCart.root);
 app.get('/login', routeLogin.root);
-app.use('/usuario', userRouter);
 app.get('/registro', routeRegister.root);
+app.use('/usuario', userRouter);
+app.get('/carrito', routeCart.root);
+app.get('/detalles-pago', function(req, res) {
+  res.sendFile(req.app.get('viewsDir') + '/detalles-pago.html');
+});
+app.get('/password-reset', function(req, res) {
+  res.sendFile(req.app.get('viewsDir') + '/password-reset.html');
+});
+app.get('/password-reset-change', function(req, res) {
+  res.sendFile(req.app.get('viewsDir') + '/password-reset-change.html');
+});
 
 
 // Config and launch.
