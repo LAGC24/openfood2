@@ -30,7 +30,7 @@ var routeRoot       = require('./routes/root');
 var resultRouter    = require('./routes/results');
 
 var loginRouter     = require('./routes/login');
-var routeRegister   = require('./routes/register');
+var registerRouter  = require('./routes/register');
 var userRouter      = require('./routes/user');
 var routeCart       = require('./routes/cart');
 
@@ -43,7 +43,7 @@ app.use('/results', resultRouter);
 
 // Rest of routes.
 app.use('/login', loginRouter);
-app.get('/registro', routeRegister.root);
+app.use('/registro', registerRouter);
 app.use('/usuario', userRouter);
 app.get('/carrito', routeCart.root);
 

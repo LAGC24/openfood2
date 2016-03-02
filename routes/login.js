@@ -9,12 +9,12 @@ var bodyParser = require('body-parser').urlencoded({ extended: false });
 
 router.route('/')
   .get(function(req, res) {
-    //resp.sendFile(__dirname + '/app/index.html');
     res.sendFile(req.app.get('viewsDir') + '/login.html');
   })
   .post(bodyParser, function(req, res) {
 
     console.log(req.body);
+
     res.sendFile(req.app.get('viewsDir') + '/login.html');
   });
 
