@@ -26,8 +26,10 @@ app.use(favicon(__dirname + '/public/favicon.ico', {maxAge: 60 * 60 * 24 * 1000}
 
 // Routing
 var routeRoot       = require('./routes/root');
+
 var resultRouter    = require('./routes/results');
-var routeLogin      = require('./routes/login');
+
+var loginRouter     = require('./routes/login');
 var routeRegister   = require('./routes/register');
 var userRouter      = require('./routes/user');
 var routeCart       = require('./routes/cart');
@@ -39,12 +41,12 @@ app.get('/', routeRoot.root);
 // Root's Results.
 app.use('/results', resultRouter);
 
-// Todo: rest of routes... (dont forget to change the relative paths to start/be relative to root. E.g. index.html to /, or usuario.html to /user)
 // Rest of routes.
-app.get('/login', routeLogin.root);
+app.use('/login', loginRouter);
 app.get('/registro', routeRegister.root);
 app.use('/usuario', userRouter);
 app.get('/carrito', routeCart.root);
+
 app.get('/detalles-pago', function(req, res) {
   res.sendFile(req.app.get('viewsDir') + '/detalles-pago.html');
 });
