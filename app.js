@@ -32,7 +32,7 @@ var resultRouter    = require('./routes/results');
 var loginRouter     = require('./routes/login');
 var registerRouter  = require('./routes/register');
 var userRouter      = require('./routes/user');
-var routeCart       = require('./routes/cart');
+var cartRouter      = require('./routes/cart');
 
 // Root.
 app.get('/', routeRoot.root);
@@ -45,7 +45,7 @@ app.use('/results', resultRouter);
 app.use('/login', loginRouter);
 app.use('/registro', registerRouter);
 app.use('/usuario', userRouter);
-app.get('/carrito', routeCart.root);
+app.use('/carrito', cartRouter);
 
 app.get('/detalles-pago', function(req, res) {
   res.sendFile(req.app.get('viewsDir') + '/detalles-pago.html');
